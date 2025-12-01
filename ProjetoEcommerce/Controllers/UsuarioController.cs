@@ -39,28 +39,18 @@ namespace ProjetoEcommerce.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(string email, string senha)
+        public IActionResult Login(string nomeUsu, string senhaUsu)
         {
-            /* Chama o método ObterUsuario do _usuarioRepositorio, passando o email fornecido pelo usuário.
-             Isso buscará um usuário no banco de dados com o email correspondente.*/
-
-            var usuario = _usuarioRepositorio.ObterUsuario(email);
-            // Verifica se um usuário foi encontrado for diferente de vazio e se a senha fornecida corresponde à senha do usuário encontrado.
-            if (usuario != null && usuario.SenhaUsu.ToString() == senha)
+            var usuario = _usuarioRepositorio.ObterUsuario(nomeUsu);
+            if (usuario != null && usuario.SenhaUsu.ToString() == senhaUsu)
             {
-                // Autenticação bem-sucedida
-                // Redireciona o usuário para a action "Menu" do Controller "Usuario".
                 return RedirectToAction("Menu", "Usuario");
             }
-            /* Se a autenticação falhar (usuário não encontrado ou senha incorreta):
-             Adiciona um erro ao ModelState. ModelState armazena o estado do modelo e erros de validação.
-             O primeiro argumento ("") indica um erro
-             O segundo argumento é a mensagem de erro que será exibida ao usuário.*/
-
-            ModelState.AddModelError("", "Email ou senha inválidos.");
-            //retorna view Login 
+            ModelState.AddModelError("", "Nome ou senha inválidos.");
             return View();
         }
+
+
 
         //CHAMA O METODO CADASTRAR USUARIO
         public IActionResult CadastrarUsuario()
