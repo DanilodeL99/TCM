@@ -1,0 +1,102 @@
+﻿/* ======== CONFIGURAÇÕES GERAIS ======== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* ======== NAVBAR ======== */
+.navbar {
+    background-color: #FEFEFE !important;
+    border-bottom: 3px solid #F5357A;
+    padding: 1rem 2rem;
+}
+
+#logo {
+    margin-right: 10px;
+    width: auto;
+}
+
+.site-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #333 !important; /* texto mais escuro no fundo claro */
+}
+
+/* Links do menu */
+.nav-link {
+    color: #333 !important;
+    margin-left: 10px;
+    transition: 0.3s;
+    font-weight: 500;
+    transition: 0.25s ease-in-out;
+}
+
+    .nav-link:hover {
+        color: #F37127 !important;
+        text-decoration: underline;
+    }
+
+
+.hero {
+    padding: 80px 20px;
+    text-align: left;
+    max-width: 900px;
+    margin: auto;
+}
+
+    .hero h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #222;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        margin-top: 10px;
+        color: #444;
+    }
+
+/* Botão principal */
+.btn-primary-custom {
+    margin-top: 25px;
+    background-color: #007bff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+    .btn-primary-custom:hover {
+        background-color: #0069d9;
+    }
+
+/* ======== RODAPÉ ======== */
+footer.footer {
+    padding: 20px 0;
+    background-color: #f0f0f0;
+    color: #555;
+    margin-top: 40px;
+}
+
+footer a {
+    color: #007bff;
+}
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+
+/* ======== RESPONSIVIDADE ======== */
+@media (max-width: 768px) {
+    .hero {
+        text-align: center;
+    }
+
+    .site-title {
+        font-size: 1.4rem;
+    }
+}

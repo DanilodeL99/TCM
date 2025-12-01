@@ -1,0 +1,41 @@
+﻿@model ProjetoEcommerce.Models.Usuario
+
+@{
+    ViewData["Title"] = "Cadastrar Usuário";
+}
+
+<link href="~/css/cadastrousuario.css" rel="stylesheet" />
+
+<video autoplay loop muted playsinline class="bg-video">
+    <source src="~/" type="video/mp4" />
+</video>
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow form-card p-4 col-md-6">
+        <h2 class="text-center mb-4 fw-bold text-primary">Cadastro de Usuário</h2>
+
+
+        <form asp-action="CadastrarUsuario" method="post">
+
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Nome</label>
+                <input asp-for="NomeUsu" class="form-control" placeholder="Digite seu nome" />
+                <span asp-validation-for="NomeUsu" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Senha</label>
+                <input asp-for="SenhaUsu" type="password" class="form-control" placeholder="Digite sua senha" />
+                <span asp-validation-for="SenhaUsu" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="d-flex justify-content-between mt-4">
+                <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary">Voltar</a>
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </div>
+        </form>
+    </div>
+</div>

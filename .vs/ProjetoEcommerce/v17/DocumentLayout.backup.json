@@ -1,0 +1,173 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\2mod\\Desktop\\ProjetoEcommerce - Copia\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|c:\\users\\2mod\\desktop\\projetoecommerce - copia\\projetoecommerce\\repositorio\\usuariorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|solutionrelative:projetoecommerce\\repositorio\\usuariorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|c:\\users\\2mod\\desktop\\projetoecommerce - copia\\projetoecommerce\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|solutionrelative:projetoecommerce\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|c:\\users\\2mod\\desktop\\projetoecommerce - copia\\projetoecommerce\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|solutionrelative:projetoecommerce\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|c:\\users\\2mod\\desktop\\projetoecommerce - copia\\projetoecommerce\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|solutionrelative:projetoecommerce\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|c:\\users\\2mod\\desktop\\projetoecommerce - copia\\projetoecommerce\\views\\produto\\editarproduto.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|solutionrelative:projetoecommerce\\views\\produto\\editarproduto.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|c:\\users\\2mod\\desktop\\projetoecommerce - copia\\projetoecommerce\\views\\produto\\listarprodutos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|solutionrelative:projetoecommerce\\views\\produto\\listarprodutos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|c:\\users\\2mod\\desktop\\projetoecommerce - copia\\projetoecommerce\\views\\usuario\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|solutionrelative:projetoecommerce\\views\\usuario\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|c:\\users\\2mod\\desktop\\projetoecommerce - copia\\projetoecommerce\\wwwroot\\css\\cadastrousuario.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|solutionrelative:projetoecommerce\\wwwroot\\css\\cadastrousuario.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|c:\\users\\2mod\\desktop\\projetoecommerce - copia\\projetoecommerce\\views\\usuario\\cadastrarusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|solutionrelative:projetoecommerce\\views\\usuario\\cadastrarusuario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UsuarioController.cs",
+              "DocumentMoniker": "C:\\Users\\2mod\\Desktop\\ProjetoEcommerce - Copia\\ProjetoEcommerce\\Controllers\\UsuarioController.cs",
+              "RelativeDocumentMoniker": "ProjetoEcommerce\\Controllers\\UsuarioController.cs",
+              "ToolTip": "C:\\Users\\2mod\\Desktop\\ProjetoEcommerce - Copia\\ProjetoEcommerce\\Controllers\\UsuarioController.cs",
+              "RelativeToolTip": "ProjetoEcommerce\\Controllers\\UsuarioController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAuwEsAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T19:56:10.281Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UsuarioRepositorio.cs",
+              "DocumentMoniker": "C:\\Users\\2mod\\Desktop\\ProjetoEcommerce - Copia\\ProjetoEcommerce\\Repositorio\\UsuarioRepositorio.cs",
+              "RelativeDocumentMoniker": "ProjetoEcommerce\\Repositorio\\UsuarioRepositorio.cs",
+              "ToolTip": "C:\\Users\\2mod\\Desktop\\ProjetoEcommerce - Copia\\ProjetoEcommerce\\Repositorio\\UsuarioRepositorio.cs",
+              "RelativeToolTip": "ProjetoEcommerce\\Repositorio\\UsuarioRepositorio.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAewDgAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T19:55:13.709Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\2mod\\Desktop\\ProjetoEcommerce - Copia\\ProjetoEcommerce\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "ProjetoEcommerce\\Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\2mod\\Desktop\\ProjetoEcommerce - Copia\\ProjetoEcommerce\\Models\\Usuario.cs",
+              "RelativeToolTip": "ProjetoEcommerce\\Models\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T19:54:48.872Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\2mod\\Desktop\\ProjetoEcommerce - Copia\\ProjetoEcommerce\\appsettings.json",
+              "RelativeDocumentMoniker": "ProjetoEcommerce\\appsettings.json",
+              "ToolTip": "C:\\Users\\2mod\\Desktop\\ProjetoEcommerce - Copia\\ProjetoEcommerce\\appsettings.json",
+              "RelativeToolTip": "ProjetoEcommerce\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-01T19:50:33.598Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "cadastrousuario.css",
+              "DocumentMoniker": "C:\\Users\\2mod\\Desktop\\ProjetoEcommerce - Copia\\ProjetoEcommerce\\wwwroot\\css\\cadastrousuario.css",
+              "RelativeDocumentMoniker": "ProjetoEcommerce\\wwwroot\\css\\cadastrousuario.css",
+              "ToolTip": "C:\\Users\\2mod\\Desktop\\ProjetoEcommerce - Copia\\ProjetoEcommerce\\wwwroot\\css\\cadastrousuario.css",
+              "RelativeToolTip": "ProjetoEcommerce\\wwwroot\\css\\cadastrousuario.css",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAAAGUAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-12-01T19:42:26.76Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CadastrarUsuario.cshtml",
+              "DocumentMoniker": "C:\\Users\\2mod\\Desktop\\ProjetoEcommerce - Copia\\ProjetoEcommerce\\Views\\Usuario\\CadastrarUsuario.cshtml",
+              "RelativeDocumentMoniker": "ProjetoEcommerce\\Views\\Usuario\\CadastrarUsuario.cshtml",
+              "ToolTip": "C:\\Users\\2mod\\Desktop\\ProjetoEcommerce - Copia\\ProjetoEcommerce\\Views\\Usuario\\CadastrarUsuario.cshtml",
+              "RelativeToolTip": "ProjetoEcommerce\\Views\\Usuario\\CadastrarUsuario.cshtml",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAIwB0AAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-01T19:39:37.687Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EditarProduto.cshtml",
+              "DocumentMoniker": "C:\\Users\\2mod\\Desktop\\ProjetoEcommerce - Copia\\ProjetoEcommerce\\Views\\Produto\\EditarProduto.cshtml",
+              "RelativeDocumentMoniker": "ProjetoEcommerce\\Views\\Produto\\EditarProduto.cshtml",
+              "ToolTip": "C:\\Users\\2mod\\Desktop\\ProjetoEcommerce - Copia\\ProjetoEcommerce\\Views\\Produto\\EditarProduto.cshtml",
+              "RelativeToolTip": "ProjetoEcommerce\\Views\\Produto\\EditarProduto.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-01T19:38:22.065Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ListarProdutos.cshtml",
+              "DocumentMoniker": "C:\\Users\\2mod\\Desktop\\ProjetoEcommerce - Copia\\ProjetoEcommerce\\Views\\Produto\\ListarProdutos.cshtml",
+              "RelativeDocumentMoniker": "ProjetoEcommerce\\Views\\Produto\\ListarProdutos.cshtml",
+              "ToolTip": "C:\\Users\\2mod\\Desktop\\ProjetoEcommerce - Copia\\ProjetoEcommerce\\Views\\Produto\\ListarProdutos.cshtml",
+              "RelativeToolTip": "ProjetoEcommerce\\Views\\Produto\\ListarProdutos.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-01T19:37:27.623Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\2mod\\Desktop\\ProjetoEcommerce - Copia\\ProjetoEcommerce\\Views\\Usuario\\Login.cshtml",
+              "RelativeDocumentMoniker": "ProjetoEcommerce\\Views\\Usuario\\Login.cshtml",
+              "ToolTip": "C:\\Users\\2mod\\Desktop\\ProjetoEcommerce - Copia\\ProjetoEcommerce\\Views\\Usuario\\Login.cshtml",
+              "RelativeToolTip": "ProjetoEcommerce\\Views\\Usuario\\Login.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-01T19:36:59.087Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

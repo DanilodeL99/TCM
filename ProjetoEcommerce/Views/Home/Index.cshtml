@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Inicio"] = "Home Page";
+}
+
+<link href="~/css/home.css" rel="stylesheet" />
+
+<div class="split-wrapper d-flex">
+
+    <!-- Imagem à esquerda -->
+    <div class="split-left"></div>
+
+    <!-- Conteúdo à direita -->
+    <div class="split-right d-flex flex-column justify-content-center">
+        <div class="content-box">
+
+            <h1 class="display-4 fw-bold">Pitaya Vegan</h1>
+
+            <p class="lead mb-3">
+                Nosso cliente <strong>Pitaya Vegan</strong> é um restaurante vegano especializado em cozinha natural,
+                oferecendo refeições preparadas com ingredientes orgânicos, integrais e frescos.
+            </p>
+
+            <p class="lead mb-3">
+                Todos os dias são servidas diversas opções de saladas frescas e pratos quentes,
+                cuidadosamente elaborados para promover sabor, saúde e bem-estar.
+            </p>
+
+            <p class="lead mb-4">
+                Localizado na Lapa, em São Paulo, o restaurante nasceu em 2020, inspirado na fruta pitaya.
+                Após reuniões e alinhamentos, desenvolvemos este sistema para atender às necessidades do cliente
+                e aprimorar sua experiência digital.
+            </p>
+
+            <div class="d-flex flex-wrap gap-3">
+                <a class="btn btn-primary btn-lg" asp-controller="Loja" asp-action="CatalogoProdutos">
+                    Acessar o Menu
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</div>

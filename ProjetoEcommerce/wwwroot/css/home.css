@@ -1,0 +1,74 @@
+﻿/* ======== LAYOUT GERAL ======== */
+.split-wrapper {
+    height: 100vh;
+    width: 100%;
+}
+
+/* ======== LADO ESQUERDO (IMAGEM) ======== */
+.split-left {
+    background-image: url('../img/pitaya-bg.jpg'); /* Coloque sua imagem aqui */
+    background-size: cover;
+    background-position: center;
+    width: 50%;
+}
+
+/* ======== LADO DIREITO (CONTEÚDO) ======== */
+.split-right {
+    background-color: #fff;
+    width: 50%;
+    padding: 60px;
+}
+
+.content-box {
+    max-width: 600px;
+    margin: auto;
+}
+
+/* ======== TIPOGRAFIA ======== */
+h1 {
+    color: #222;
+    font-size: 3rem;
+}
+
+.lead {
+    color: #555;
+}
+
+/* ======== BOTÃO ======== */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+    .btn-primary:hover {
+        background-color: #005fcc;
+    }
+
+/* ======== RESPONSIVIDADE ======== */
+@media (max-width: 992px) {
+    .split-wrapper {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .split-left,
+    .split-right {
+        width: 100%;
+        height: 50vh;
+    }
+
+    .split-right {
+        padding: 40px 20px;
+    }
+}
+
+body{
+    overflow-y:hidden;
+}
+footer{
+    display:none;
+}

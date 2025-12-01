@@ -1,0 +1,43 @@
+﻿@model ProjetoEcommerce.Models.Usuario;
+
+@{
+    ViewData["Title"] = "Login";
+}
+<link href="~/css/login.css" rel="stylesheet" />
+
+<div class="container">
+    <div class="col-md-8 login-container">
+        <div class="card login-card">
+            <div class="card-header bg-primary text-white text-center">
+                <h2>Acesso à Conta</h2>
+            </div>
+            <div class="card-body">
+
+                <form asp-controller="Usuario" asp-action="Login" method="post">
+
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+                    <div class="mb-3">
+                        <div class="mb-3">
+                            <label asp-for="NomeUsu" class="form-label"></label>
+                            <input asp-for="NomeUsu" class="form-control" placeholder="Digite seu nome" />
+                            <span asp-validation-for="NomeUsu" class="text-danger"></span>
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label asp-for="SenhaUsu" class="form-label"></label>
+                            <input asp-for="SenhaUsu" type="password" class="form-control" placeholder="••••••••" />
+                            <span asp-validation-for="SenhaUsu" class="text-danger"></span>
+                        </div>
+
+
+                    <div class="d-grid gap-2 mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg">Entrar</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

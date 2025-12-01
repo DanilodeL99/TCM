@@ -1,0 +1,103 @@
+﻿/* ======== FUNDO E VIDEO ======== */
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(0.6); /* escurece o vídeo levemente para o formulário se destacar */
+}
+
+/* ======== CONTAINER DO FORM ======== */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* ocupa a tela inteira */
+}
+
+/* ======== CARD DO FORMULÁRIO ======== */
+.form-card {
+    background-color: rgba(255, 255, 255, 0.95); /* leve transparência */
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 450px;
+    transition: transform 0.3s ease;
+}
+
+    .form-card:hover {
+        transform: translateY(-5px);
+    }
+
+    /* ======== TÍTULO ======== */
+    .form-card h2 {
+        color: #F37127; /* cor semelhante ao destaque do Home */
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+    }
+
+/* ======== INPUTS ======== */
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+    .form-control:focus {
+        border-color: #F37127;
+        box-shadow: 0 0 5px rgba(243, 113, 39, 0.5);
+        outline: none;
+    }
+
+/* ======== LABEL ======== */
+.form-label {
+    font-weight: 600;
+    color: #333;
+}
+
+/* ======== BOTÕES ======== */
+.btn-primary {
+    background-color: #F37127;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+    .btn-primary:hover {
+        background-color: #F5357A;
+    }
+
+.btn-outline-secondary {
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+    .btn-outline-secondary:hover {
+        background-color: #F37127;
+        color: white;
+        border-color: #F37127;
+    }
+
+/* ======== MARGENS ======== */
+.mt-4 {
+    margin-top: 1.5rem !important;
+}
+
+.mb-3 {
+    margin-bottom: 1rem !important;
+}
+
+footer{
+    display: none;
+}
