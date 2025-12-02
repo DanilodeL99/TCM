@@ -5,37 +5,40 @@
 }
 
 <link href="~/css/cadastrousuario.css" rel="stylesheet" />
+<div class="container">
+    <div class="col-md-8 login-container">
+        <div class="card login-card">
 
-<video autoplay loop muted playsinline class="bg-video">
-    <source src="~/" type="video/mp4" />
-</video>
-
-<div class="container d-flex justify-content-center align-items-center vh-100">
-    <div class="card shadow form-card p-4 col-md-6">
-        <h2 class="text-center mb-4 fw-bold text-primary">Cadastro de Usuário</h2>
-
-
-        <form asp-action="CadastrarUsuario" method="post">
-
-
-            <div class="mb-3">
-                <label class="form-label fw-semibold">Nome</label>
-                <input asp-for="NomeUsu" class="form-control" placeholder="Digite seu nome" />
-                <span asp-validation-for="NomeUsu" class="text-danger"></span>
+            <div class="card-header text-white text-center">
+                <h2>Cadastro de Usuário</h2>
             </div>
 
-            <div class="mb-3">
-                <label class="form-label fw-semibold">Senha</label>
-                <input asp-for="SenhaUsu" type="password" class="form-control" placeholder="Digite sua senha" />
-                <span asp-validation-for="SenhaUsu" class="text-danger"></span>
+            <div class="card-body">
+                <p class="card-description">Crie sua conta para acessar o sistema</p>
+
+                <form asp-action="CadastrarUsuario" method="post">
+
+                    <div class="mb-3">
+                        <label for="NomeUsu" class="form-label">Nome</label>
+                        <input asp-for="NomeUsu" class="form-control" placeholder="Digite seu nome" />
+                        <span asp-validation-for="NomeUsu" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="SenhaUsu" class="form-label">Senha</label>
+                        <input asp-for="SenhaUsu" type="password" class="form-control" placeholder="Digite sua senha" />
+                        <span asp-validation-for="SenhaUsu" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-grid gap-2 mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg">Cadastrar</button>
+                    </div>
+
+                    <a asp-controller="Home" asp-action="Index" class="secondary-link mt-3">Voltar à Página Inicial</a>
+
+                </form>
+
             </div>
-
-
-
-            <div class="d-flex justify-content-between mt-4">
-                <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary">Voltar</a>
-                <button type="submit" class="btn btn-primary">Cadastrar</button>
-            </div>
-        </form>
+        </div>
     </div>
 </div>

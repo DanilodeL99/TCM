@@ -1,0 +1,141 @@
+﻿/* --- Cores de Marca Pitaya Vegan --- */
+:root {
+    --primary-pink: #FF3C7F; /* Rosa vibrante */
+    --primary-pink-dark: #ff2c6f;
+    --secondary-pink-light: #ffd1e3;
+    --table-header-bg: #FFE5EE; /* Rosa muito claro para cabeçalho da tabela */
+    --background-color: #f8f8f8;
+    --text-color: #333;
+    --btn-edit: #007bff; /* Azul para Editar (Padrão web) */
+    --btn-delete: #dc3545; /* Vermelho forte para Excluir (Padrão web) */
+    --btn-back-bg: #6c757d; /* Cinza para Voltar */
+}
+
+/* --- Layout Geral e Título --- */
+body {
+    background-color: var(--background-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    padding: 20px;
+}
+
+.titulo-pagina {
+    text-align: center;
+    color: var(--primary-pink);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--secondary-pink-light);
+}
+
+.container-tabela {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto; /* Centraliza o container */
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Garante que os cantos arredondados funcionem na tabela */
+}
+
+/* --- Estilo da Tabela --- */
+.tabela-produtos {
+    width: 100%;
+    border-collapse: collapse; /* Remove espaçamento entre células */
+}
+
+    /* Cabeçalho da Tabela */
+    .tabela-produtos thead {
+        background-color: var(--table-header-bg);
+        color: var(--text-color);
+        font-size: 1rem;
+    }
+
+    .tabela-produtos th {
+        padding: 15px 10px;
+        text-align: left;
+        font-weight: 600;
+        border-bottom: 2px solid var(--secondary-pink-light);
+    }
+
+    /* Corpo da Tabela */
+    .tabela-produtos tbody tr {
+        transition: background-color 0.3s;
+    }
+
+        /* Efeito Zebra: Alterna as cores das linhas */
+        .tabela-produtos tbody tr:nth-child(even) {
+            background-color: #fcfcfc;
+        }
+
+        /* Efeito Hover nas linhas */
+        .tabela-produtos tbody tr:hover {
+            background-color: #fff0f5; /* Rosa muito suave no hover */
+        }
+
+    .tabela-produtos td {
+        padding: 12px 10px;
+        border-bottom: 1px solid #eee;
+        vertical-align: middle;
+    }
+
+        /* Colunas de Conteúdo Específico */
+        .tabela-produtos td:nth-child(4), /* Preço */
+        .tabela-produtos td:nth-child(5) { /* Quantidade */
+            text-align: center;
+            font-weight: 500;
+        }
+
+/* --- Botões de Ação na Tabela --- */
+.btn-editar,
+.btn-excluir {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    margin-right: 8px;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.btn-editar {
+    background-color: var(--btn-edit);
+    color: white;
+}
+
+    .btn-editar:hover {
+        background-color: #0056b3;
+    }
+
+.btn-excluir {
+    background-color: var(--btn-delete);
+    color: white;
+}
+
+    .btn-excluir:hover {
+        background-color: #c82333;
+    }
+
+/* --- Estilo do Botão Voltar (Fora da tabela, na parte inferior) --- */
+
+.container-tabela .btn-secondary {
+    display: block;
+    width: calc(100% - 80px); /* Ajustado para dar espaço na tabela */
+    max-width: 300px;
+    margin: 20px auto 30px auto;
+    padding: 12px;
+    background-color: var(--btn-back-bg);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+    .container-tabela .btn-secondary:hover {
+        background-color: #5a6268;
+    }
+

@@ -4,53 +4,43 @@
 
 <link href="~/css/cadastroproduto.css" rel="stylesheet" />
 
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-6">
+<div class="form-wrapper d-flex justify-content-center align-items-center">
 
-            <div class="card shadow-lg border-0">
-                <div class="card-header text-center text-white bg-primary">
-                    <h3>Cadastro de Produto</h3>
-                    <p class="m-0 small">Adicione produtos</p>
-                </div>
+    <div class="custom-card shadow-lg">
 
-                <div class="card-body">
-
-                    <form asp-controller="Produto" asp-action="CadastrarProduto" method="post">
-
-                        <div class="mb-3">
-                            <label class="form-label fw-bold">Nome do Produto</label>
-                            <input type="text" class="form-control" name="NomeProd" placeholder="Ex: Polystation 5" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label fw-bold">Descrição</label>
-                            <textarea class="form-control" name="DescProd" rows="3" placeholder="Descrição do produto" required></textarea>
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label fw-bold">Preço (R$)</label>
-                            <input type="number" class="form-control" name="PrecoProd" step="0.01" placeholder="Ex: 59.90" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label fw-bold">Quantidade em Estoque</label>
-                            <input type="number" class="form-control" name="Qtd" placeholder="Ex: 10" required>
-                        </div>
-
-                        <button type="submit" class="btn btn-success w-100 py-2 fw-bold">
-                            Cadastrar Produto
-                        </button>
-
-                        <a asp-controller="Usuario" asp-action="Menu" class="btn btn-secondary w-100 mt-2">
-                            Voltar
-                        </a>
-                    </form>
-
-
-                </div>
-
-            </div>
+        <div class="header">
+            <h2>Cadastro de Produto</h2>
+            <p>Adicione novos itens ao cardápio</p>
         </div>
+
+        <form asp-controller="Produto" asp-action="CadastrarProduto" method="post">
+
+            <div class="input-group">
+                <label>Nome do Produto</label>
+                <input type="text" name="NomeProd" placeholder="Ex: Salada Vegana Especial" required />
+            </div>
+
+            <div class="input-group">
+                <label>Descrição</label>
+                <textarea name="DescProd" rows="3" placeholder="Descrição detalhada do produto" required></textarea>
+            </div>
+
+            <div class="half-group d-flex gap-3">
+                <div class="input-group flex-fill">
+                    <label>Preço (R$)</label>
+                    <input type="number" name="PrecoProd" step="0.01" placeholder="Ex: 24.90" required />
+                </div>
+
+                <div class="input-group flex-fill">
+                    <label>Quantidade</label>
+                    <input type="number" name="Qtd" placeholder="Ex: 10" required />
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit">Cadastrar Produto</button>
+
+            <a asp-controller="Usuario" asp-action="Menu" class="btn-back">Voltar</a>
+        </form>
+
     </div>
 </div>

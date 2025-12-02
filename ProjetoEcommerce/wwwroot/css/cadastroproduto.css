@@ -1,0 +1,116 @@
+﻿/* ===== Layout geral ===== */
+.form-wrapper {
+    height: 100vh;
+    background: #fdfdfd;
+    padding: 40px 20px;
+}
+
+/* ===== Card ===== */
+.custom-card {
+    width: 100%;
+    max-width: 520px;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 40px;
+    border: 1px solid #ffe5ef;
+    box-shadow: 0 8px 30px rgba(255, 55, 120, 0.15);
+}
+
+/* ===== Header ===== */
+.header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+    .header h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #ff3c7f;
+    }
+
+    .header p {
+        margin-top: 5px;
+        color: #666;
+        font-size: 0.9rem;
+    }
+
+/* ===== Inputs ===== */
+.input-group {
+    margin-bottom: 18px;
+}
+
+    .input-group label {
+        font-weight: 600;
+        color: #333;
+    }
+
+    .input-group input,
+    .input-group textarea {
+        width: 100%;
+        margin-top: 5px;
+        padding: 12px;
+        border-radius: 10px;
+        border: 2px solid #ffd1e3;
+        outline: none;
+        font-size: 1rem;
+        transition: .3s;
+        background: #fff;
+    }
+
+        .input-group input:focus,
+        .input-group textarea:focus {
+            border-color: #ff3c7f;
+            box-shadow: 0 0 8px rgba(255, 60, 127, 0.3);
+        }
+
+/* ===== Botões ===== */
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    background: linear-gradient(135deg, #ff3c7f, #ff6699);
+    font-size: 1.1rem;
+    color: white;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+    .btn-submit:hover {
+        background: linear-gradient(135deg, #ff2c6f, #ff4c88);
+        transform: translateY(-2px);
+    }
+
+/* ===== Voltar ===== */
+.btn-back {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 12px;
+    font-weight: 600;
+    border: 2px solid #ccc;
+    color: #555;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+    .btn-back:hover {
+        background: #f2f2f2;
+    }
+
+
+
+
+/* ===== Responsividade ===== */
+@media (max-width: 480px) {
+    .custom-card {
+        padding: 25px;
+    }
+
+    .header h2 {
+        font-size: 1.7rem;
+    }
+}

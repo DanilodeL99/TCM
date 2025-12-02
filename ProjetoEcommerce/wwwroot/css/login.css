@@ -1,8 +1,8 @@
 ﻿/* --- Cores de Marca Pitaya Vegan --- */
 :root {
-    --primary-pink: #FF3C7F;
-    --primary-pink-dark: #ff2c6f;
-    --secondary-pink-light: #ffd1e3;
+    --primary-pink: #FF3C7F; /* Rosa vibrante (similar ao botão Cadastrar) */
+    --primary-pink-dark: #ff2c6f; /* Rosa escuro para hover */
+    --secondary-pink-light: #ffd1e3; /* Rosa claro para bordas/sombras */
     --background-color: #f8f8f8;
     --text-color: #333;
     --card-background: #ffffff;
@@ -15,36 +15,38 @@ body {
 }
 
 .container {
+    /* Define o container para ocupar toda a altura da viewport */
     min-height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
     padding: 20px;
 }
 
 .login-container {
     width: 100%;
-    max-width: 450px;
+    max-width: 450px; /* Define um tamanho máximo elegante para o card de login */
 }
 
-/* --- Estilo do Card (Igual ao Login) --- */
+/* --- Estilo do Card de Login --- */
 .login-card {
     border: none;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(255, 60, 127, 0.2);
+    box-shadow: 0 10px 30px rgba(255, 60, 127, 0.2); /* Sombra suave com a cor primária */
     background-color: var(--card-background);
-    overflow: hidden;
+    overflow: hidden; /* Garante que o cabeçalho arredondado funcione bem */
 }
 
-/* --- Estilo do Card Header (Igual ao Login) --- */
+/* --- Estilo do Card Header (Cabeçalho) --- */
 .card-header {
+    /* Substitui 'bg-primary' e 'text-white' */
     background: linear-gradient(135deg, var(--primary-pink), #ff6699);
     color: white !important;
     text-align: center;
     padding: 20px 15px;
     border-bottom: none;
     font-weight: 700;
-    border-radius: 15px 15px 0 0;
+    border-radius: 15px 15px 0 0; /* Arredonda apenas o topo */
 }
 
     .card-header h2 {
@@ -52,20 +54,13 @@ body {
         font-size: 1.8rem;
     }
 
-/* --- Estilo do Card Body e Descrição --- */
+/* --- Estilo do Card Body --- */
 .card-body {
     padding: 30px;
 }
 
-.card-description {
-    text-align: center;
-    color: #666;
-    margin-bottom: 20px;
-    font-size: 0.95rem;
-}
-
-/* --- Estilos de Input (Igual ao Login) --- */
-.mb-3 label.form-label {
+/* --- Estilos de Input (Substituindo form-label e form-control) --- */
+.mb-3 label {
     display: block;
     margin-bottom: 8px;
     font-weight: 600;
@@ -86,11 +81,11 @@ body {
 
     .form-control:focus {
         border-color: var(--primary-pink);
-        box-shadow: 0 0 0 4px rgba(255, 60, 127, 0.15);
+        box-shadow: 0 0 0 4px rgba(255, 60, 127, 0.15); /* Foco mais suave */
         outline: none;
     }
 
-/* Estilos de Validação (Igual ao Login) */
+/* --- Estilos de Validação (Substituindo text-danger) --- */
 .text-danger {
     color: var(--primary-pink) !important;
     font-size: 0.9em;
@@ -98,11 +93,23 @@ body {
     display: block;
 }
 
-/* --- Estilo do Botão Cadastrar (Igual ao Botão Entrar do Login) --- */
+.alert-danger {
+    /* Estilo para a validação geral (ModelOnly) */
+    background-color: #ffe5e5;
+    color: #cc0000;
+    border-color: #ffcccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+/* --- Estilo do Botão (Substituindo btn-primary e d-grid) --- */
 .d-grid button.btn-lg {
     width: 100%;
     padding: 14px;
     border: none;
+    /* Usa o mesmo gradiente do cabeçalho */
     background: linear-gradient(135deg, var(--primary-pink), #ff6699);
     font-size: 1.1rem;
     color: white;
@@ -116,22 +123,4 @@ body {
     .d-grid button.btn-lg:hover {
         background: linear-gradient(135deg, var(--primary-pink-dark), #ff4c88);
         transform: translateY(-1px);
-    }
-
-/* --- Estilo do Link Voltar (Novo estilo para complementar) --- */
-.secondary-link {
-    display: block;
-    text-align: center;
-    width: 100%;
-    padding: 10px;
-    margin-top: 15px;
-    color: #888;
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: color 0.3s;
-}
-
-    .secondary-link:hover {
-        color: var(--primary-pink);
-        text-decoration: underline;
     }

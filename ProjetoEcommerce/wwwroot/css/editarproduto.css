@@ -1,0 +1,124 @@
+﻿/* --- Cores de Marca Pitaya Vegan --- */
+:root {
+    --primary-pink: #FF3C7F; /* Rosa vibrante (Cor principal do site) */
+    --primary-pink-dark: #ff2c6f;
+    --secondary-pink-light: #ffd1e3; /* Borda dos inputs / Foco suave */
+    --background-color: #f8f8f8;
+    --text-color: #333;
+    --card-background: #ffffff;
+    --btn-save: #28a745; /* Verde para Salvar (Padrão web) */
+    --btn-save-hover: #1e7e34;
+    --btn-back-bg: #6c757d; /* Cinza para Voltar */
+    --btn-back-hover: #5a6268;
+}
+
+/* --- Layout Geral e Centralização --- */
+body {
+    background-color: var(--background-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* O container e as classes de coluna do Bootstrap já centralizam o conteúdo */
+.container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+/* --- Estilo do Card (Semelhante ao Login/Cadastro) --- */
+.card {
+    border: none !important;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(255, 60, 127, 0.15); /* Sombra suave com toque rosado */
+    background-color: var(--card-background);
+    overflow: hidden;
+}
+
+/* --- Estilo do Card Header (Cabeçalho de Edição) --- */
+.card-header {
+    /* Substitui 'bg-primary' e 'text-white' */
+    background: linear-gradient(135deg, var(--primary-pink), #ff6699);
+    color: white !important;
+    text-align: center;
+    padding: 18px 15px;
+    border-bottom: none !important;
+    font-weight: 700;
+    border-radius: 15px 15px 0 0;
+}
+
+    .card-header h3 {
+        margin: 0;
+        font-size: 1.6rem;
+    }
+
+/* --- Estilo do Card Body e Formulário --- */
+.card-body {
+    padding: 30px;
+}
+
+/* --- Estilos de Input (Substituindo form-label e form-control) --- */
+.mb-3 label.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600 !important; /* Mantém o peso da fonte */
+    color: var(--text-color);
+    font-size: 1em;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 2px solid var(--secondary-pink-light); /* Borda rosa clara */
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #fff;
+}
+
+    .form-control:focus {
+        border-color: var(--primary-pink);
+        box-shadow: 0 0 0 4px rgba(255, 60, 127, 0.15); /* Foco suave com a cor da marca */
+        outline: none;
+    }
+
+textarea.form-control {
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+/* --- Estilo dos Botões --- */
+
+/* Botão Salvar (Verde - Substitui btn-success) */
+.btn-success {
+    background-color: var(--btn-save);
+    color: white;
+    border: none;
+    padding: 14px;
+    font-size: 1.1rem;
+    font-weight: 700 !important;
+    border-radius: 12px;
+    transition: background-color 0.3s, transform 0.1s;
+    margin-top: 15px;
+}
+
+    .btn-success:hover {
+        background-color: var(--btn-save-hover);
+        transform: translateY(-1px);
+    }
+
+/* Botão Voltar (Cinza - Substitui btn-secondary) */
+.btn-secondary {
+    background-color: var(--btn-back-bg);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    display: block; /* Garante que o link ocupe a largura total */
+}
+
+    .btn-secondary:hover {
+        background-color: var(--btn-back-hover);
+    }

@@ -1,0 +1,120 @@
+﻿/* --- Cores de Marca Pitaya Vegan --- */
+:root {
+    --primary-pink: #FF3C7F; /* Rosa vibrante para botões principais ou destaque */
+    --primary-pink-dark: #ff2c6f;
+    --secondary-pink-light: #ffd1e3;
+    --background-color: #f0f0f0; /* Fundo padrão cinza claro para fallback */
+    --card-background: #ffffff;
+    --btn-blue: #007bff; /* Azul padrão para Cadastro (Botão 1) */
+    --btn-green: #ffc107; /* Verde padrão para Listar (Botão 2) */
+    --btn-yellow: #ffc107; /* Amarelo padrão para Editar/Excluir (Botão 3) */
+}
+
+/* --- Estilo do Vídeo de Fundo --- */
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100; /* Garante que fique atrás de todo o conteúdo */
+    background-color: var(--background-color); /* Cor de fallback se o vídeo falhar */
+    object-fit: cover; /* Garante que o vídeo cubra toda a tela */
+    filter: brightness(0.8) grayscale(0.2); /* Sutilmente escurece e dessatura o vídeo para não competir com o menu */
+}
+
+
+/* --- Layout Geral e Centralização do Menu --- */
+/* O HTML usa d-flex, justify-content-center, align-items-center e vh-100 para centralizar */
+.d-flex {
+    /* Garante que o menu principal fique centralizado na tela */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* --- Estilo do Card do Menu (Semelhante ao Login/Cadastro) --- */
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra mais neutra, pois o fundo é dinâmico */
+    background-color: var(--card-background);
+    padding: 40px !important; /* Aumenta o padding interno (p-5 no HTML) */
+    width: 100%;
+    max-width: 400px; /* Mantém um tamanho compacto e elegante */
+    box-sizing: border-box;
+}
+
+    /* --- Títulos e Descrição --- */
+    .card h2 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--text-color);
+        margin-bottom: 10px !important;
+    }
+
+.card-body p.text-muted {
+    color: #ff3c7f;
+    margin-bottom: 30px !important;
+    font-size: 1rem;
+}
+
+/* --- Estilo dos Botões do Menu --- */
+
+.btn-lg {
+    padding: 14px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 12px; /* Cantos arredondados consistentes */
+    transition: 0.3s ease;
+    border: none;
+    text-transform: uppercase; /* Dá um toque profissional */
+}
+
+/* Botão 1: Cadastrar Produto (Azul) */
+.btn-primary {
+    background-color: #ff3c7f;
+}
+
+    .btn-primary:hover {
+        background-color: #ff3c7f;
+        transform: translateY(-1px);
+    }
+
+/* Botão 2: Listar Produtos (Verde) */
+.btn-success {
+    background-color: #ff3c7f);
+}
+
+    .btn-success:hover {
+        background-color: #ff3c7f;
+        transform: translateY(-1px);
+    }
+
+/* Botão 3: Editar / Excluir Produto (Amarelo) */
+.btn-warning {
+    background-color: #ff3c7f;
+    color: var(--text-color); /* Mudar a cor do texto para escuro, já que o fundo é claro */
+}
+
+    .btn-warning:hover {
+        background-color: #ff3c7f;
+        transform: translateY(-1px);
+    }
+
+/* --- Responsividade --- */
+@media (max-width: 450px) {
+    .card {
+        padding: 30px 20px !important;
+        margin: 0 15px;
+    }
+}
+
+
+body{
+    overflow-y:hidden;
+}

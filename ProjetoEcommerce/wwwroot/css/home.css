@@ -6,11 +6,12 @@
 
 /* ======== LADO ESQUERDO (IMAGEM) ======== */
 .split-left {
-    background-image: url('../img/pitaya-bg.jpg'); /* Coloque sua imagem aqui */
+    background-image: url('/img/cozinhaVegetariana.png');
     background-size: cover;
     background-position: center;
     width: 50%;
 }
+
 
 /* ======== LADO DIREITO (CONTEÚDO) ======== */
 .split-right {
@@ -36,7 +37,7 @@ h1 {
 
 /* ======== BOTÃO ======== */
 .btn-primary {
-    background-color: #007bff;
+    background-color: #F5357A;
     border: none;
     padding: 14px 28px;
     font-size: 1.1rem;
@@ -68,4 +69,5 @@ h1 {
 
 body{
     overflow-y:hidden;
+
 }
