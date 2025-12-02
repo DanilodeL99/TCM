@@ -2,50 +2,153 @@
     ViewData["Title"] = "Cardápio";
 }
 
-<link href="~/css/Catalogo.css" rel="stylesheet" />
-
-<video autoplay loop muted playsinline class="bg-video">
-        <source src="~/" type="video/mp4" />
-</video>
+<link rel="stylesheet" href="~/css/Catalogo.css" />
 
 <div class="catalog-container">
 
-    <!-- Seção de Produtos -->
-    <h3 class="subtitulo mt-4">PRATOS</h3>
-    <div class="produtos-container">
-        <div class="card-produto">
-            <div class="img-wrap">
-                <img src="~/img/.jpg" alt="" />
-            </div>
-            <div class="content">
-                <h4></h4>
-                <p>Biblioteca quase ilimitada de entreterimento</p>
-                <span class="preco">R$ 67,00</span>
-            </div>
+    <div class="loja-container">
+
+
+        <div class="filtros">
+            <h2 class="filtros-titulo">Filtros</h2>
+
+            <ul class="filtros-lista">
+
+                <li data-filter="vegano" class="filtro-item">Vegano</li>
+                <li data-filter="semgluten" class="filtro-item">Sem Glúten</li>
+                <li data-filter="lowcarb" class="filtro-item">Low Carb</li>
+                <li data-filter="picante" class="filtro-item">Picante</li>
+
+                <hr />
+
+                <li data-filter="almoco" class="filtro-item">Almoço</li>
+                <li data-filter="jantar" class="filtro-item">Jantar</li>
+                <li data-filter="lanches" class="filtro-item">Lanches</li>
+
+                <hr />
+
+                <li data-filter="bebida" class="filtro-item">Bebidas</li>
+                <li data-filter="doce" class="filtro-item">Sobremesas</li>
+
+                <hr />
+
+                <li data-filter="barato" class="filtro-item">Baixo Custo</li>
+                <li data-filter="avaliado" class="filtro-item">Mais Avaliados</li>
+
+            </ul>
+
+            <div class="filtro-limpar" id="limparFiltros">Limpar Filtros</div>
         </div>
 
+   
+        <div class="pratos" id="listaPratos">
 
-        <div class="card-produto">
-            <div class="img-wrap">
-                <img src="~/img/cachorro2.jpg" alt="Coleira" />
+          
+            <div class="prato-item" data-categoria="vegano almoco barato">
+                <img src="/img/pratos/p1.jpg" />
+                <h3 class="prato-nome">Strogonoff Vegano</h3>
+                <p class="prato-descricao">Proteína de soja cremosa com arroz integral.</p>
+                <p class="prato-preco">R$ 28,00</p>
+                <button class="botao-pedido">Adicionar ao Pedido</button>
             </div>
-            <div class="content">
-                <h4>Tenis</h4>
-                <p>Conforto e estilo</p>
-                <span class="preco">R$ 90,99</span>
+
+            <div class="prato-item" data-categoria="vegano doce avaliado">
+                <img src="/img/pratos/p2.jpg" />
+                <h3 class="prato-nome">Mousse de Chocolate Vegano</h3>
+                <p class="prato-descricao">Chocolate 70% com tofu e toque de baunilha.</p>
+                <p class="prato-preco">R$ 18,00</p>
+                <button class="botao-pedido">Adicionar ao Pedido</button>
             </div>
-        </div>
+
+            <div class="prato-item" data-categoria="vegano semgluten almoco">
+                <img src="/img/pratos/p3.jpg" />
+                <h3 class="prato-nome">Quinoa com Legumes</h3>
+                <p class="prato-descricao">Quinoa soltinha com legumes orgânicos.</p>
+                <p class="prato-preco">R$ 30,00</p>
+                <button class="botao-pedido">Adicionar ao Pedido</button>
+            </div>
 
 
-        <div class="card-produto">
-            <div class="img-wrap">
-                <img src="~/img/cachorro.jpg" alt="Caminha" />
+         
+            <div class="prato-item" data-categoria="lowcarb jantar">
+                <img src="/img/pratos/low1.jpg" />
+                <h3 class="prato-nome">Abobrinha Recheada</h3>
+                <p class="prato-descricao">Recheada com tofu, tomate e ervas.</p>
+                <p class="prato-preco">R$ 32,00</p>
+                <button class="botao-pedido">Adicionar ao Pedido</button>
             </div>
-            <div class="content">
-                <h4>Pingentes</h4>
-                <p>Estilo garantido</p>
-                <span class="preco">R$ 20,90</span>
+
+            <div class="prato-item" data-categoria="lowcarb almoco">
+                <img src="/img/pratos/low2.jpg" />
+                <h3 class="prato-nome">Espaguete de Pupunha</h3>
+                <p class="prato-descricao">Molho pesto artesanal com castanhas.</p>
+                <p class="prato-preco">R$ 29,00</p>
+                <button class="botao-pedido">Adicionar ao Pedido</button>
             </div>
+
+
+         
+            <div class="prato-item" data-categoria="jantar vegano avaliado">
+                <img src="/img/pratos/jantar1.jpg" />
+                <h3 class="prato-nome">Risoto Vegano de Cogumelos</h3>
+                <p class="prato-descricao">Cremoso, aromático e cheio de sabor.</p>
+                <p class="prato-preco">R$ 38,00</p>
+                <button class="botao-pedido">Adicionar ao Pedido</button>
+            </div>
+
+
+            <div class="prato-item" data-categoria="lanches barato vegano">
+                <img src="/img/pratos/lanche1.jpg" />
+                <h3 class="prato-nome">Sanduíche de Falafel</h3>
+                <p class="prato-descricao">Falafel crocante com tahine.</p>
+                <p class="prato-preco">R$ 22,00</p>
+                <button class="botao-pedido">Adicionar ao Pedido</button>
+            </div>
+
+
+   
+            <div class="prato-item" data-categoria="picante jantar">
+                <img src="/img/pratos/picante1.jpg" />
+                <h3 class="prato-nome">Chilli Vegano</h3>
+                <p class="prato-descricao">Feijão, tomate e especiarias intensas.</p>
+                <p class="prato-preco">R$ 26,00</p>
+                <button class="botao-pedido">Adicionar ao Pedido</button>
+            </div>
+
+
+            <div class="prato-item" data-categoria="bebida barato">
+                <img src="/img/pratos/bebida1.jpg" />
+                <h3 class="prato-nome">Suco Verde Detox</h3>
+                <p class="prato-descricao">Couve, maçã, gengibre e limão.</p>
+                <p class="prato-preco">R$ 12,00</p>
+                <button class="botao-pedido">Adicionar ao Pedido</button>
+            </div>
+
         </div>
     </div>
 </div>
+
+<script>
+
+
+    const filtros = document.querySelectorAll(".filtro-item");
+    const pratos = document.querySelectorAll(".prato-item");
+    const limpar = document.getElementById("limparFiltros");
+
+    filtros.forEach(filtro => {
+        filtro.addEventListener("click", () => {
+            let categoria = filtro.dataset.filter;
+            pratos.forEach(prato => {
+                prato.style.display = prato.dataset.categoria.includes(categoria)
+                    ? "block"
+                    : "none";
+            });
+        });
+    });
+
+    limpar.addEventListener("click", () => {
+        pratos.forEach(prato => prato.style.display = "block");
+    });
+</script>
+
+<footer>...</footer>

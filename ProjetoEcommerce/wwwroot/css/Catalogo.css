@@ -1,0 +1,156 @@
+﻿.catalog-container {
+    padding-top: 40px;
+}
+
+.loja-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px 40px;
+}
+
+/* ----------------------------
+   FILTROS
+----------------------------- */
+.filtros {
+    width: 280px;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+}
+
+.filtros-titulo {
+    font-size: 1.7rem;
+    color: #F5357A;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.filtros-lista {
+    padding: 0;
+    list-style: none;
+}
+
+    .filtros-lista hr {
+        border: none;
+        border-top: 1px solid #ddd;
+        margin: 12px 0;
+    }
+
+.filtro-item {
+    font-size: 1.1rem;
+    padding: 8px 0;
+    cursor: pointer;
+    color: #2E7D32;
+    transition: 0.2s;
+}
+
+    .filtro-item:hover {
+        color: #F5357A;
+        transform: translateX(4px);
+    }
+
+.filtro-limpar {
+    margin-top: 20px;
+    text-align: center;
+    color: #e91e63;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* ----------------------------
+   PRATOS
+----------------------------- */
+.pratos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 22px;
+    width: 100%;
+}
+
+.prato-item {
+    background: white;
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.08);
+    transition: 0.25s;
+}
+
+    .prato-item:hover {
+        transform: translateY(-6px);
+        box-shadow: 0px 8px 18px rgba(0,0,0,0.15);
+    }
+
+    .prato-item img {
+        width: 100%;
+        height: 180px;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+
+.prato-nome {
+    margin-top: 12px;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.prato-descricao {
+    font-size: 0.95rem;
+    margin: 8px 0;
+    color: #666;
+}
+
+.prato-preco {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #F5357A;
+    margin-bottom: 8px;
+}
+
+.botao-pedido {
+    background: #2E7D32;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+    .botao-pedido:hover {
+        background: #1B5E20;
+    }
+
+
+.filtro-container {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.filtro-btn {
+    padding: 10px 25px;
+    border-radius: 30px;
+    background-color: #e92f8b;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+    .filtro-btn:hover {
+        transform: scale(1.15);
+        background-color: #ff3fa0;
+    }
+
+    .filtro-btn.active {
+        background-color: #b81f6b;
+    }
+
+

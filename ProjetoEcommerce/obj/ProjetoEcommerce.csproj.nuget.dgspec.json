@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\2mod\\Desktop\\ProjetoEcommerce - Copia\\ProjetoEcommerce\\ProjetoEcommerce.csproj": {}
+    "C:\\Users\\2mod\\Desktop\\TCM\\ProjetoEcommerce\\ProjetoEcommerce.csproj": {}
   },
   "projects": {
-    "C:\\Users\\2mod\\Desktop\\ProjetoEcommerce - Copia\\ProjetoEcommerce\\ProjetoEcommerce.csproj": {
+    "C:\\Users\\2mod\\Desktop\\TCM\\ProjetoEcommerce\\ProjetoEcommerce.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\2mod\\Desktop\\ProjetoEcommerce - Copia\\ProjetoEcommerce\\ProjetoEcommerce.csproj",
+        "projectUniqueName": "C:\\Users\\2mod\\Desktop\\TCM\\ProjetoEcommerce\\ProjetoEcommerce.csproj",
         "projectName": "ProjetoEcommerce",
-        "projectPath": "C:\\Users\\2mod\\Desktop\\ProjetoEcommerce - Copia\\ProjetoEcommerce\\ProjetoEcommerce.csproj",
+        "projectPath": "C:\\Users\\2mod\\Desktop\\TCM\\ProjetoEcommerce\\ProjetoEcommerce.csproj",
         "packagesPath": "C:\\Users\\2mod\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\2mod\\Desktop\\ProjetoEcommerce - Copia\\ProjetoEcommerce\\obj\\",
+        "outputPath": "C:\\Users\\2mod\\Desktop\\TCM\\ProjetoEcommerce\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

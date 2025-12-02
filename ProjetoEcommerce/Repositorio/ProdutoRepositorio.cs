@@ -38,7 +38,7 @@ namespace ProjetoEcommerce.Repositorio
             }
         }
 
-        // =============================
+        // =============================MySql.Data.MySqlClient.MySqlException: 'Column 'NomeProd' cannot be null'
         // ATUALIZAR PRODUTO
         // =============================
         public bool Atualizar(Produto produto)

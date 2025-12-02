@@ -1,4 +1,8 @@
+wwwroot\css\cadastrousuario.css
+wwwroot\css\home.css
+wwwroot\css\Catalogo.css
 wwwroot\favicon.ico
+wwwroot\img\Logo.png
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
@@ -57,8 +61,5 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
-wwwroot\css\site.css
-wwwroot\css\home.css
-wwwroot\img\Logo.png
 wwwroot\videos\cozinha.mp4
-wwwroot\css\cadastrousuario.css
+wwwroot\css\site.css

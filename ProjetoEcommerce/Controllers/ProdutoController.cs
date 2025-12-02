@@ -39,15 +39,23 @@ namespace ProjetoEcommerce.Controllers
         [HttpPost]
         public IActionResult CadastrarProduto(Produto produto)
         {
+            // pega o usuário logado
+            var codUsuStr = HttpContext.Session.GetString("CodUsu");
 
-            /* O parâmetro 'produto' recebe os dados enviados pelo formulário,
-             que são automaticamente mapeados para as propriedades da classe Produto.
-             Chama o método no repositório para cadastrar o novo produto no sistema.*/
+            if (string.IsNullOrEmpty(codUsuStr))
+            {
+                TempData["MensagemErro"] = "Sessão expirada. Faça login novamente.";
+                return RedirectToAction("Login", "Usuario");
+            }
+
+            produto.CodUsu = int.Parse(codUsuStr);
+
+
             _produtoRepositorio.CadastrarProduto(produto);
 
-            //redireciona para pagina Index 'Menu/Usuario' garante que o nome da Action seja usado corretamente,
             return RedirectToAction("Menu", "Usuario");
         }
+
 
         /* Action para exibir o formulário de edição de um produto específico (via Requisição GET)
          Este método recebe o 'id' do produto a ser editado como parâmetro.*/
