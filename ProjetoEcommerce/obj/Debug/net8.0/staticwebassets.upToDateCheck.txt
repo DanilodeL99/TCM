@@ -1,6 +1,7 @@
 wwwroot\css\cadastroproduto.css
 wwwroot\css\cadastrousuario.css
 wwwroot\css\Catalogo.css
+wwwroot\css\editarproduto.css
 wwwroot\css\home.css
 wwwroot\css\ListarProdutos.css
 wwwroot\css\login.css
@@ -77,4 +78,3 @@ wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
 wwwroot\videos\cozinha.mp4
-wwwroot\css\editarproduto.css
