@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using ProjetoEcommerce.Models;
 using ProjetoEcommerce.Repositorio;
-using Microsoft.AspNetCore.Http;
 
 namespace ProjetoEcommerce.Controllers
 {
@@ -14,17 +14,13 @@ namespace ProjetoEcommerce.Controllers
             _usuarioRepositorio = usuarioRepositorio;
         }
 
-        // -----------------------------
-        // EXIBE A TELA DE LOGIN
-        // -----------------------------
+        // GET: /Usuario/Login
         public IActionResult Login()
         {
             return View();
         }
 
-        // -----------------------------
-        // PROCESSA LOGIN
-        // -----------------------------
+        // POST: /Usuario/Login
         [HttpPost]
         public IActionResult Login(string nomeUsu, string senhaUsu)
         {
@@ -32,8 +28,9 @@ namespace ProjetoEcommerce.Controllers
 
             if (usuario != null && usuario.SenhaUsu == senhaUsu)
             {
-                // 🔥 SALVA O ID DO USUÁRIO NA SESSÃO
-                HttpContext.Session.SetString("CodUsu", usuario.CodUsu.ToString());
+                // salva na sessão o id e o nome (usamos ambos)
+                HttpContext.Session.SetInt32("CodUsu", usuario.CodUsu);
+                HttpContext.Session.SetString("UsuarioLogado", usuario.NomeUsu);
 
                 return RedirectToAction("Menu", "Usuario");
             }
@@ -42,35 +39,39 @@ namespace ProjetoEcommerce.Controllers
             return View();
         }
 
-        // -----------------------------
-        // MENU DO USUÁRIO LOGADO
-        // -----------------------------
+        // GET: /Usuario/Logout
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Home");
+        }
+
+        // GET: /Usuario/Menu
         public IActionResult Menu()
         {
             return View();
         }
 
-        // -----------------------------
-        // CADASTRAR USUÁRIO (GET)
-        // -----------------------------
+        // GET: /Usuario/CadastrarUsuario
         public IActionResult CadastrarUsuario()
         {
             return View();
         }
 
-        // -----------------------------
-        // CADASTRAR USUÁRIO (POST)
-        // -----------------------------
+        // POST: /Usuario/CadastrarUsuario
         [HttpPost]
         public IActionResult CadastrarUsuario(Usuario usuario)
         {
-            if (ModelState.IsValid)
-            {
-                _usuarioRepositorio.Cadastrar(usuario);
-                return RedirectToAction("Login");
-            }
+            if (!ModelState.IsValid)
+                return View(usuario);
 
-            return View(usuario);
+            _usuarioRepositorio.Cadastrar(usuario);
+
+            // opcional: logar automaticamente após cadastro
+            HttpContext.Session.SetInt32("CodUsu", usuario.CodUsu);
+            HttpContext.Session.SetString("UsuarioLogado", usuario.NomeUsu);
+
+            return RedirectToAction("Menu", "Usuario");
         }
     }
 }

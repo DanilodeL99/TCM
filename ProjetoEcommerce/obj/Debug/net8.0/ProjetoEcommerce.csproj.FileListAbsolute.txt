@@ -210,3 +210,4 @@ C:\Users\Dan Gatão\Desktop\TCM\ProjetoEcommerce\obj\Debug\net8.0\refint\Projeto
 C:\Users\Dan Gatão\Desktop\TCM\ProjetoEcommerce\obj\Debug\net8.0\ProjetoEcommerce.pdb
 C:\Users\Dan Gatão\Desktop\TCM\ProjetoEcommerce\obj\Debug\net8.0\ProjetoEcommerce.genruntimeconfig.cache
 C:\Users\Dan Gatão\Desktop\TCM\ProjetoEcommerce\obj\Debug\net8.0\ref\ProjetoEcommerce.dll
+C:\Users\Dan Gatão\Desktop\TCM\ProjetoEcommerce\bin\Debug\net8.0\Newtonsoft.Json.dll

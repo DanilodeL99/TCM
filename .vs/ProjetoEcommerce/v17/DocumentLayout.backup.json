@@ -3,12 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\Dan Gat\u00E3o\\Desktop\\TCM\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|c:\\users\\dan gat\u00E3o\\desktop\\tcm\\projetoecommerce\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|solutionrelative:projetoecommerce\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|c:\\users\\dan gat\u00E3o\\desktop\\tcm\\projetoecommerce\\controllers\\produtocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|solutionrelative:projetoecommerce\\controllers\\produtocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|c:\\users\\dan gat\u00E3o\\desktop\\tcm\\projetoecommerce\\views\\helpers\\carrinhosessao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|solutionrelative:projetoecommerce\\views\\helpers\\carrinhosessao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|c:\\users\\dan gat\u00E3o\\desktop\\tcm\\projetoecommerce\\controllers\\carrinhocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|solutionrelative:projetoecommerce\\controllers\\carrinhocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|c:\\users\\dan gat\u00E3o\\desktop\\tcm\\projetoecommerce\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|solutionrelative:projetoecommerce\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|c:\\users\\dan gat\u00E3o\\desktop\\tcm\\projetoecommerce\\wwwroot\\css\\carrinho.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|solutionrelative:projetoecommerce\\wwwroot\\css\\carrinho.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|c:\\users\\dan gat\u00E3o\\desktop\\tcm\\projetoecommerce\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|solutionrelative:projetoecommerce\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|c:\\users\\dan gat\u00E3o\\desktop\\tcm\\projetoecommerce\\wwwroot\\js\\carrinho.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|solutionrelative:projetoecommerce\\wwwroot\\js\\carrinho.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|c:\\users\\dan gat\u00E3o\\desktop\\tcm\\projetoecommerce\\views\\loja\\catalogoprodutos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|solutionrelative:projetoecommerce\\views\\loja\\catalogoprodutos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|c:\\users\\dan gat\u00E3o\\desktop\\tcm\\projetoecommerce\\models\\carrinhoitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|solutionrelative:projetoecommerce\\models\\carrinhoitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|c:\\users\\dan gat\u00E3o\\desktop\\tcm\\projetoecommerce\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDCC9C1A-151D-456E-9982-4ACBC70338AD}|ProjetoEcommerce\\ProjetoEcommerce.csproj|solutionrelative:projetoecommerce\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +50,136 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProdutoController.cs",
+              "DocumentMoniker": "C:\\Users\\Dan Gat\u00E3o\\Desktop\\TCM\\ProjetoEcommerce\\Controllers\\ProdutoController.cs",
+              "RelativeDocumentMoniker": "ProjetoEcommerce\\Controllers\\ProdutoController.cs",
+              "ToolTip": "C:\\Users\\Dan Gat\u00E3o\\Desktop\\TCM\\ProjetoEcommerce\\Controllers\\ProdutoController.cs",
+              "RelativeToolTip": "ProjetoEcommerce\\Controllers\\ProdutoController.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAgwC8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T19:59:03.997Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "CarrinhoSessao.cs",
+              "DocumentMoniker": "C:\\Users\\Dan Gat\u00E3o\\Desktop\\TCM\\ProjetoEcommerce\\Views\\Helpers\\CarrinhoSessao.cs",
+              "RelativeDocumentMoniker": "ProjetoEcommerce\\Views\\Helpers\\CarrinhoSessao.cs",
+              "ToolTip": "C:\\Users\\Dan Gat\u00E3o\\Desktop\\TCM\\ProjetoEcommerce\\Views\\Helpers\\CarrinhoSessao.cs",
+              "RelativeToolTip": "ProjetoEcommerce\\Views\\Helpers\\CarrinhoSessao.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAABAAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T20:29:52.97Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "carrinho.css",
+              "DocumentMoniker": "C:\\Users\\Dan Gat\u00E3o\\Desktop\\TCM\\ProjetoEcommerce\\wwwroot\\css\\carrinho.css",
+              "RelativeDocumentMoniker": "ProjetoEcommerce\\wwwroot\\css\\carrinho.css",
+              "ToolTip": "C:\\Users\\Dan Gat\u00E3o\\Desktop\\TCM\\ProjetoEcommerce\\wwwroot\\css\\carrinho.css",
+              "RelativeToolTip": "ProjetoEcommerce\\wwwroot\\css\\carrinho.css",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAAwIQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-12-04T20:17:42.645Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Dan Gat\u00E3o\\Desktop\\TCM\\ProjetoEcommerce\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "ProjetoEcommerce\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Dan Gat\u00E3o\\Desktop\\TCM\\ProjetoEcommerce\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "ProjetoEcommerce\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAADMAAAAAAAAAAAAcwEIAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-04T20:12:40.145Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "carrinho.js",
+              "DocumentMoniker": "C:\\Users\\Dan Gat\u00E3o\\Desktop\\TCM\\ProjetoEcommerce\\wwwroot\\js\\carrinho.js",
+              "RelativeDocumentMoniker": "ProjetoEcommerce\\wwwroot\\js\\carrinho.js",
+              "ToolTip": "C:\\Users\\Dan Gat\u00E3o\\Desktop\\TCM\\ProjetoEcommerce\\wwwroot\\js\\carrinho.js",
+              "RelativeToolTip": "ProjetoEcommerce\\wwwroot\\js\\carrinho.js",
+              "ViewState": "AgIAADoAAAAAAAAAAAAMwE8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-12-04T20:10:49.382Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CarrinhoController.cs",
+              "DocumentMoniker": "C:\\Users\\Dan Gat\u00E3o\\Desktop\\TCM\\ProjetoEcommerce\\Controllers\\CarrinhoController.cs",
+              "RelativeDocumentMoniker": "ProjetoEcommerce\\Controllers\\CarrinhoController.cs",
+              "ToolTip": "C:\\Users\\Dan Gat\u00E3o\\Desktop\\TCM\\ProjetoEcommerce\\Controllers\\CarrinhoController.cs",
+              "RelativeToolTip": "ProjetoEcommerce\\Controllers\\CarrinhoController.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAAAAsAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T20:06:32.007Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "UsuarioController.cs",
               "DocumentMoniker": "C:\\Users\\Dan Gat\u00E3o\\Desktop\\TCM\\ProjetoEcommerce\\Controllers\\UsuarioController.cs",
               "RelativeDocumentMoniker": "ProjetoEcommerce\\Controllers\\UsuarioController.cs",
-              "ToolTip": "C:\\Users\\Dan Gat\u00E3o\\Desktop\\TCM\\ProjetoEcommerce\\Controllers\\UsuarioController.cs*",
-              "RelativeToolTip": "ProjetoEcommerce\\Controllers\\UsuarioController.cs*",
-              "ViewState": "AgIAADYAAAAAAAAAAAAiwEwAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Dan Gat\u00E3o\\Desktop\\TCM\\ProjetoEcommerce\\Controllers\\UsuarioController.cs",
+              "RelativeToolTip": "ProjetoEcommerce\\Controllers\\UsuarioController.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAswE0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-03T19:31:47.63Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Dan Gat\u00E3o\\Desktop\\TCM\\ProjetoEcommerce\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "ProjetoEcommerce\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Dan Gat\u00E3o\\Desktop\\TCM\\ProjetoEcommerce\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "ProjetoEcommerce\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAsAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "CatalogoProdutos.cshtml",
+              "DocumentMoniker": "C:\\Users\\Dan Gat\u00E3o\\Desktop\\TCM\\ProjetoEcommerce\\Views\\Loja\\CatalogoProdutos.cshtml",
+              "RelativeDocumentMoniker": "ProjetoEcommerce\\Views\\Loja\\CatalogoProdutos.cshtml",
+              "ToolTip": "C:\\Users\\Dan Gat\u00E3o\\Desktop\\TCM\\ProjetoEcommerce\\Views\\Loja\\CatalogoProdutos.cshtml",
+              "RelativeToolTip": "ProjetoEcommerce\\Views\\Loja\\CatalogoProdutos.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-03T17:46:42.037Z",
+              "WhenOpened": "2025-12-04T19:44:31.931Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CarrinhoItem.cs",
+              "DocumentMoniker": "C:\\Users\\Dan Gat\u00E3o\\Desktop\\TCM\\ProjetoEcommerce\\Models\\CarrinhoItem.cs",
+              "RelativeDocumentMoniker": "ProjetoEcommerce\\Models\\CarrinhoItem.cs",
+              "ToolTip": "C:\\Users\\Dan Gat\u00E3o\\Desktop\\TCM\\ProjetoEcommerce\\Models\\CarrinhoItem.cs",
+              "RelativeToolTip": "ProjetoEcommerce\\Models\\CarrinhoItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T20:04:18.455Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Dan Gat\u00E3o\\Desktop\\TCM\\ProjetoEcommerce\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "ProjetoEcommerce\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Dan Gat\u00E3o\\Desktop\\TCM\\ProjetoEcommerce\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "ProjetoEcommerce\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T18:38:14.807Z",
               "EditorCaption": ""
             }
           ]

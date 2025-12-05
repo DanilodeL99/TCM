@@ -1,0 +1,132 @@
+﻿/* ícones no navbar */
+.icon {
+    cursor: pointer;
+}
+
+.perfil-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+}
+
+.sacola-icon {
+    width: 36px;
+    height: 36px;
+}
+
+/* popup do perfil (simples) */
+.perfil-popup {
+    position: absolute;
+    right: 20px;
+    top: 70px;
+    background: #fff;
+    border-radius: 18px;
+    padding: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    display: none;
+}
+
+    .perfil-icon:hover + .perfil-popup, .perfil-popup:hover {
+        display: block;
+    }
+
+/* popup-carrinho — tipo bolha lateral */
+.popup-carrinho {
+    position: fixed;
+    top: 80px;
+    right: 30px;
+    width: 320px;
+    max-height: 70vh;
+    background: #fff;
+    border: 3px solid #eab3ca;
+    border-radius: 18px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: .22s;
+    z-index: 2500;
+    display: flex;
+    flex-direction: column;
+}
+
+    .popup-carrinho.ativo {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0dbe6;
+}
+
+.popup-body {
+    padding: 12px 16px;
+    overflow: auto;
+    flex: 1;
+}
+
+.popup-footer {
+    padding: 12px 16px;
+    border-top: 1px solid #f0dbe6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-carrinho {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+    align-items: center;
+}
+
+    .item-carrinho img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .item-carrinho .meta {
+        flex: 1;
+    }
+
+        .item-carrinho .meta .nome {
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .item-carrinho .meta .preco {
+            color: #ff3778;
+            margin-top: 4px;
+        }
+
+    .item-carrinho .acoes {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+    }
+
+/* botões simples */
+.btn-small {
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: none;
+    background: #ff6f96;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn-danger {
+    background: #ff4c4c;
+}
+
+.btn-qty {
+    padding: 6px 8px;
+    border-radius: 6px;
+    background: #eee;
+    border: 1px solid #ddd;
+}

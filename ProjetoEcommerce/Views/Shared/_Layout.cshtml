@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ProjetoEcommerce.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/carrinho.css" />
+
 </head>
 <body>
     <header>
@@ -52,6 +54,20 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+    <!-- POPUP CARRINHO -->
+    <div id="popup-carrinho" class="popup-carrinho">
+        <div class="popup-header">
+            <h4>Sacola</h4>
+            <button class="fechar" onclick="fecharCarrinho()">×</button>
+        </div>
+        <div id="lista-carrinho" class="popup-body"></div>
+        <div class="popup-footer">
+            <div id="total-carrinho">Total: R$ 0,00</div>
+            <button class="btn-finalizar" onclick="finalizarPedido()">Finalizar</button>
+        </div>
+    </div>
+
 
 </body>
 </html>
