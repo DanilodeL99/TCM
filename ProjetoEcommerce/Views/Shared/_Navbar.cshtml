@@ -1,0 +1,58 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    string nomeUsuario = HttpContextAccessor.HttpContext.Session.GetString("UsuarioLogado");
+    bool logado = !string.IsNullOrEmpty(nomeUsuario);
+}
+
+<link rel="stylesheet" href="~/css/navbar.css" />
+
+<nav class="navbar-container">
+    <div class="navbar-left">
+        <a asp-controller="Home" asp-action="Index" class="logo">
+            <img src="~/images/logo.png" alt="Logo" />
+            <span>Pitaya Vegan</span>
+        </a>
+
+        <a asp-controller="Home" asp-action="Index" class="nav-link">Home</a>
+        <a asp-controller="Loja" asp-action="CatalogoProdutos" class="nav-link">Menu</a>
+    </div>
+
+    <div class="navbar-right">
+        <!-- BOTÃO CARRINHO SEMPRE VISÍVEL -->
+        <a class="cart-button" href="javascript:void(0)" onclick="openCart()">
+            <img src="~/images/cart-icon.png" alt="Carrinho" />
+        </a>
+
+        @if (!logado)
+        {
+            <!-- QUANDO NÃO ESTÁ LOGADO -->
+            <a asp-controller="Usuario" asp-action="Login" class="login-button">
+                <img src="~/images/user-icon.png" />
+                Entrar
+            </a>
+        }
+        else
+        {
+            <!-- QUANDO ESTÁ LOGADO -->
+            <div class="user-dropdown">
+                <div class="user-icon">
+                    <img src="~/images/user-icon.png" />
+                </div>
+
+                <div class="dropdown-menu">
+                    <div class="user-name">@nomeUsuario</div>
+
+                    <a asp-controller="Usuario" asp-action="Menu" class="dropdown-item">
+                        Minhas Configurações
+                    </a>
+
+                    <a asp-controller="Usuario" asp-action="Logout" class="dropdown-item logout">
+                        Sair
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+</nav>

@@ -7,28 +7,27 @@ namespace ProjetoEcommerce.Helpers
 {
     public static class CarrinhoSessao
     {
-        private const string KEY = "CARRINHO";
+        private const string CHAVE = "CARRINHO";
 
-        // PEGAR O CARRINHO DA SESSÃO
         public static List<CarrinhoItem> Get(ISession session)
         {
-            var data = session.GetString(KEY);
-            if (string.IsNullOrEmpty(data))
+            var dado = session.GetString(CHAVE);
+
+            if (string.IsNullOrEmpty(dado))
                 return new List<CarrinhoItem>();
 
-            return JsonConvert.DeserializeObject<List<CarrinhoItem>>(data);
+            return JsonConvert.DeserializeObject<List<CarrinhoItem>>(dado);
         }
 
-        // SALVAR O CARRINHO NA SESSÃO
         public static void Save(ISession session, List<CarrinhoItem> carrinho)
         {
-            session.SetString(KEY, JsonConvert.SerializeObject(carrinho));
+            var json = JsonConvert.SerializeObject(carrinho);
+            session.SetString(CHAVE, json);
         }
 
-        // LIMPAR O CARRINHO
         public static void Clear(ISession session)
         {
-            session.Remove(KEY);
+            session.Remove(CHAVE);
         }
     }
 }

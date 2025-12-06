@@ -1,73 +1,103 @@
-﻿
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="utf-8" />
-
     <title>@ViewData["Title"] - Pitaya Vegan</title>
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ProjetoEcommerce.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/carrinho.css" />
-
+    <link rel="stylesheet" href="~/css/carrinho.css" asp-append-version="true" />
 </head>
 <body>
+    @{
+        // sessão
+        var nomeUsuario = HttpContextAccessor?.HttpContext?.Session.GetString("UsuarioLogado");
+        var codUsu = HttpContextAccessor?.HttpContext?.Session.GetString("CodUsu");
+        bool logado = !string.IsNullOrEmpty(nomeUsuario);
+    }
+
+    <!-- NAVBAR -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark !important">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/Logo.png" id="logo" width="200px" height="100px" /><span class="site-title">Pitaya Vegan</span></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Usuario" asp-action="Login">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Usuario" asp-action="CadastrarUsuario">Cadastro</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Loja" asp-action="CatalogoProdutos">Menu</a>
-                        </li>
-                    </ul>
+        <nav class="pv-navbar">
+            <div class="pv-left">
+                <a asp-controller="Home" asp-action="Index" class="pv-brand">
+                    <img src="~/img/Logo.png" alt="Pitaya Vegan" class="pv-logo" />
+                    <span class="pv-title">Pitaya Vegan</span>
+                </a>
+
+                <div class="pv-links">
+                    <a asp-controller="Home" asp-action="Index" class="pv-link">Home</a>
+                    <a asp-controller="Loja" asp-action="CatalogoProdutos" class="pv-link">Menu</a>
                 </div>
+            </div>
+
+            <div class="pv-right">
+                <!-- ícone sacola/carrinho -->
+                <button class="icon-btn" id="btnOpenCart" title="Abrir sacola">
+                    <img src="~/img/sacola.png" alt="Sacola" class="icon-img" />
+                </button>
+
+                @if (!logado)
+                {
+                    <a asp-controller="Usuario" asp-action="Login" class="pv-link small">Login</a>
+                    <a asp-controller="Usuario" asp-action="CadastrarUsuario" class="pv-link small">Cadastro</a>
+                }
+                else
+                {
+                    <div class="user-area">
+                        <img src="~/img/profile.png" alt="Perfil" class="profile-icon" />
+                        <div class="user-popup">
+                            <div class="user-popup-top">
+                                <img src="~/img/profile.png" alt="Perfil" class="popup-profile" />
+                                <div class="popup-nome">@nomeUsuario</div>
+                            </div>
+
+                            <a asp-controller="Usuario" asp-action="Menu" class="popup-link">Minhas Configurações</a>
+                            <a asp-controller="Usuario" asp-action="Logout" class="popup-link logout">Sair</a>
+                        </div>
+                    </div>
+                }
             </div>
         </nav>
     </header>
+
+    <!-- CORPO -->
     <main role="main" class="pb-3">
         @RenderBody()
     </main>
 
-
-
-@*     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - PitayaVegan - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer> *@
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
-
     <!-- POPUP CARRINHO -->
-    <div id="popup-carrinho" class="popup-carrinho">
-        <div class="popup-header">
-            <h4>Sacola</h4>
-            <button class="fechar" onclick="fecharCarrinho()">×</button>
-        </div>
-        <div id="lista-carrinho" class="popup-body"></div>
-        <div class="popup-footer">
-            <div id="total-carrinho">Total: R$ 0,00</div>
-            <button class="btn-finalizar" onclick="finalizarPedido()">Finalizar</button>
+    <div id="popup-carrinho" class="popup-carrinho" aria-hidden="true">
+        <div class="popup-card">
+            <div class="popup-header">
+                <h4>Sacola</h4>
+                <button class="fechar" id="btnFecharCarrinho" aria-label="Fechar">×</button>
+            </div>
+
+            <div id="lista-carrinho" class="popup-body">
+                <!-- itens serão renderizados via JS -->
+                <div class="lista-vazia">Seu carrinho está vazio.</div>
+            </div>
+
+            <div class="popup-footer">
+                <div id="total-carrinho">Total: R$ 0,00</div>
+                <div class="footer-actions">
+                    <button class="btn btn-secondary" id="btnClearCart">Limpar</button>
+                    <button class="btn btn-success" id="btnFinalizar">Finalizar</button>
+                </div>
+            </div>
         </div>
     </div>
 
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
 
+    <script src="~/js/carrinho.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

@@ -7,6 +7,7 @@ wwwroot\css\home.css
 wwwroot\css\ListarProdutos.css
 wwwroot\css\login.css
 wwwroot\css\menu.css
+wwwroot\css\navbar.css
 wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\img\abobrinha.png

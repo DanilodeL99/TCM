@@ -638,23 +638,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dan Gatão\\.nuget\\packages\\": {},
+    "C:\\Users\\VALFRIDES\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dan Gatão\\Desktop\\TCM\\ProjetoEcommerce\\ProjetoEcommerce.csproj",
+      "projectUniqueName": "C:\\Users\\VALFRIDES\\Desktop\\TCM\\ProjetoEcommerce\\ProjetoEcommerce.csproj",
       "projectName": "ProjetoEcommerce",
-      "projectPath": "C:\\Users\\Dan Gatão\\Desktop\\TCM\\ProjetoEcommerce\\ProjetoEcommerce.csproj",
-      "packagesPath": "C:\\Users\\Dan Gatão\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dan Gatão\\Desktop\\TCM\\ProjetoEcommerce\\obj\\",
+      "projectPath": "C:\\Users\\VALFRIDES\\Desktop\\TCM\\ProjetoEcommerce\\ProjetoEcommerce.csproj",
+      "packagesPath": "C:\\Users\\VALFRIDES\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\VALFRIDES\\Desktop\\TCM\\ProjetoEcommerce\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Dan Gatão\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\VALFRIDES\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -681,7 +681,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -715,7 +715,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

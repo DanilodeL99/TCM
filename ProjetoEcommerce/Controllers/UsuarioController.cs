@@ -14,62 +14,82 @@ namespace ProjetoEcommerce.Controllers
             _usuarioRepositorio = usuarioRepositorio;
         }
 
-        // GET: /Usuario/Login
+        // =====================================================
+        // GET /Usuario/Login
+        // =====================================================
         public IActionResult Login()
         {
             return View();
         }
 
-        // POST: /Usuario/Login
+        // =====================================================
+        // POST /Usuario/Login
+        // =====================================================
         [HttpPost]
-        public IActionResult Login(string nomeUsu, string senhaUsu)
+        public IActionResult Login(Usuario usuario)
         {
-            var usuario = _usuarioRepositorio.ObterUsuario(nomeUsu);
+            var usuarioBanco = _usuarioRepositorio.Login(usuario.NomeUsu, usuario.SenhaUsu);
 
-            if (usuario != null && usuario.SenhaUsu == senhaUsu)
+            if (usuarioBanco == null)
             {
-                // salva na sessão o id e o nome (usamos ambos)
-                HttpContext.Session.SetInt32("CodUsu", usuario.CodUsu);
-                HttpContext.Session.SetString("UsuarioLogado", usuario.NomeUsu);
-
-                return RedirectToAction("Menu", "Usuario");
+                TempData["MensagemErro"] = "Usuário ou senha inválidos.";
+                return View(usuario);
             }
 
-            ModelState.AddModelError("", "Nome ou senha inválidos.");
-            return View();
+            // SALVA SESSÃO
+            HttpContext.Session.SetInt32("CodUsu", usuarioBanco.CodUsu);
+            HttpContext.Session.SetString("NomeUsu", usuarioBanco.NomeUsu);
+
+            return RedirectToAction("Index", "Home");
         }
 
-        // GET: /Usuario/Logout
+        // =====================================================
+        // LOGOUT
+        // =====================================================
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
             return RedirectToAction("Index", "Home");
         }
 
-        // GET: /Usuario/Menu
+        // MENU DO USUÁRIO
+       
         public IActionResult Menu()
         {
+            if (HttpContext.Session.GetInt32("CodUsu") == null)
+                return RedirectToAction("Login", "Usuario");
+
             return View();
         }
 
-        // GET: /Usuario/CadastrarUsuario
+     
+        // TELA DE CADASTRO DE USUÁRIO
+       
         public IActionResult CadastrarUsuario()
         {
             return View();
         }
 
-        // POST: /Usuario/CadastrarUsuario
+        // =====================================================
+        // POST /Usuario/CadastrarUsuario
+        // =====================================================
         [HttpPost]
         public IActionResult CadastrarUsuario(Usuario usuario)
         {
             if (!ModelState.IsValid)
                 return View(usuario);
 
-            _usuarioRepositorio.Cadastrar(usuario);
+            bool criado = _usuarioRepositorio.Cadastrar(usuario);
 
-            // opcional: logar automaticamente após cadastro
+            if (!criado)
+            {
+                TempData["MensagemErro"] = "Erro ao cadastrar usuário.";
+                return View(usuario);
+            }
+
+            // Login automático
             HttpContext.Session.SetInt32("CodUsu", usuario.CodUsu);
-            HttpContext.Session.SetString("UsuarioLogado", usuario.NomeUsu);
+            HttpContext.Session.SetString("NomeUsu", usuario.NomeUsu);
 
             return RedirectToAction("Menu", "Usuario");
         }

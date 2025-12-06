@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProjetoEcommerce.Helpers;
 using ProjetoEcommerce.Models;
+using ProjetoEcommerce.Models.DTO;
+using System.Linq;
 
 namespace ProjetoEcommerce.Controllers
 {
@@ -17,7 +19,9 @@ namespace ProjetoEcommerce.Controllers
         public IActionResult Adicionar([FromBody] CarrinhoItem item)
         {
             var carrinho = CarrinhoSessao.Get(HttpContext.Session);
+
             var existente = carrinho.FirstOrDefault(x => x.ProdutoId == item.ProdutoId);
+
             if (existente == null)
             {
                 item.Quantidade = item.Quantidade <= 0 ? 1 : item.Quantidade;
@@ -27,33 +31,44 @@ namespace ProjetoEcommerce.Controllers
             {
                 existente.Quantidade += item.Quantidade <= 0 ? 1 : item.Quantidade;
             }
+
             CarrinhoSessao.Save(HttpContext.Session, carrinho);
-            return Ok(new { sucesso = true, total = carrinho.Sum(x => x.Preco * x.Quantidade) });
+
+            return Ok(new
+            {
+                sucesso = true,
+                total = carrinho.Sum(x => x.Preco * x.Quantidade)
+            });
         }
 
         [HttpPost]
-        public IActionResult AtualizarQuantidade([FromBody] dynamic dto)
+        public IActionResult AtualizarQuantidade([FromBody] AtualizarQuantidadeDTO dto)
         {
-            int id = (int)dto.produtoId;
-            int qtd = (int)dto.quantidade;
             var carrinho = CarrinhoSessao.Get(HttpContext.Session);
-            var item = carrinho.FirstOrDefault(x => x.ProdutoId == id);
+            var item = carrinho.FirstOrDefault(x => x.ProdutoId == dto.ProdutoId);
+
             if (item != null)
             {
-                item.Quantidade = qtd;
-                if (item.Quantidade <= 0) carrinho.Remove(item);
+                item.Quantidade = dto.Quantidade;
+
+                if (item.Quantidade <= 0)
+                    carrinho.Remove(item);
+
                 CarrinhoSessao.Save(HttpContext.Session, carrinho);
             }
+
             return Ok(new { sucesso = true });
         }
 
         [HttpPost]
-        public IActionResult Remover([FromBody] dynamic dto)
+        public IActionResult Remover([FromBody] RemoverItemDTO dto)
         {
-            int id = (int)dto.produtoId;
             var carrinho = CarrinhoSessao.Get(HttpContext.Session);
-            carrinho.RemoveAll(x => x.ProdutoId == id);
+
+            carrinho.RemoveAll(x => x.ProdutoId == dto.ProdutoId);
+
             CarrinhoSessao.Save(HttpContext.Session, carrinho);
+
             return Ok(new { sucesso = true });
         }
     }

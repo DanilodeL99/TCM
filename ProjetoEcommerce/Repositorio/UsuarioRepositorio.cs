@@ -1,7 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using ProjetoEcommerce.Models;
-using System;
-using System.Data;
 
 namespace ProjetoEcommerce.Repositorio
 {
@@ -14,10 +12,58 @@ namespace ProjetoEcommerce.Repositorio
             _conexaoMySQL = configuration.GetConnectionString("conexaoMySQL");
         }
 
-        // =============================
-        // OBTER USUÁRIO (pelo código ou nome)
-        // =============================
+        // =====================================================
+        // LOGIN
+        // =====================================================
+        public Usuario Login(string nome, string senha)
+        {
+            using var conexao = new MySqlConnection(_conexaoMySQL);
+            conexao.Open();
 
+            var sql = @"SELECT * FROM tbUsuario 
+                        WHERE NomeUsu = @nome AND SenhaUsu = @senha";
+
+            var cmd = new MySqlCommand(sql, conexao);
+
+            cmd.Parameters.AddWithValue("@nome", nome);
+            cmd.Parameters.AddWithValue("@senha", senha);
+
+            using var dr = cmd.ExecuteReader();
+
+            if (!dr.Read())
+                return null;
+
+            return new Usuario
+            {
+                CodUsu = Convert.ToInt32(dr["CodUsu"]),
+                NomeUsu = dr["NomeUsu"].ToString(),
+                SenhaUsu = dr["SenhaUsu"].ToString()
+            };
+        }
+
+        // =====================================================
+        // CADASTRAR USUÁRIO
+        // =====================================================
+        public bool Cadastrar(Usuario usuario)
+        {
+            using var conexao = new MySqlConnection(_conexaoMySQL);
+            conexao.Open();
+
+            var sql = @"INSERT INTO tbUsuario (CodUsu, NomeUsu, SenhaUsu) 
+                        VALUES (@cod, @nome, @senha)";
+
+            var cmd = new MySqlCommand(sql, conexao);
+
+            cmd.Parameters.AddWithValue("@cod", usuario.CodUsu);
+            cmd.Parameters.AddWithValue("@nome", usuario.NomeUsu);
+            cmd.Parameters.AddWithValue("@senha", usuario.SenhaUsu);
+
+            return cmd.ExecuteNonQuery() > 0;
+        }
+
+        // =====================================================
+        // OBTER USUÁRIO
+        // =====================================================
         public Usuario ObterUsuario(string nome)
         {
             using var conexao = new MySqlConnection(_conexaoMySQL);
@@ -27,39 +73,16 @@ namespace ProjetoEcommerce.Repositorio
             cmd.Parameters.AddWithValue("@nome", nome);
 
             using var dr = cmd.ExecuteReader();
-            Usuario usuario = null;
-            if (dr.Read())
+
+            if (!dr.Read())
+                return null;
+
+            return new Usuario
             {
-                usuario = new Usuario
-                {
-                    CodUsu = Convert.ToInt32(dr["CodUsu"]),
-                    NomeUsu = dr["NomeUsu"].ToString(),
-                    SenhaUsu = dr["SenhaUsu"].ToString()
-                };
-            }
-            return usuario;
-        }
-
-
-        // =============================
-        // CADASTRAR USUÁRIO
-        // =============================
-
-        public void Cadastrar(Usuario usuario)
-        {
-            using (var conexao = new MySqlConnection(_conexaoMySQL))
-            {
-                conexao.Open();
-
-                MySqlCommand cmd = new MySqlCommand(
-                    "INSERT INTO tbUsuario (CodUsu, NomeUsu, SenhaUsu) VALUES (@cod, @nome, @senha)", conexao);
-
-                cmd.Parameters.AddWithValue("@cod", usuario.CodUsu);
-                cmd.Parameters.AddWithValue("@nome", usuario.NomeUsu);
-                cmd.Parameters.AddWithValue("@senha", usuario.SenhaUsu);
-
-                cmd.ExecuteNonQuery();
-            }
+                CodUsu = Convert.ToInt32(dr["CodUsu"]),
+                NomeUsu = dr["NomeUsu"].ToString(),
+                SenhaUsu = dr["SenhaUsu"].ToString()
+            };
         }
     }
 }
