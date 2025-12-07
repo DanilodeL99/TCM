@@ -1,43 +1,36 @@
-﻿@model ProjetoEcommerce.Models.Usuario;
-
-@{
+﻿@{
     ViewData["Title"] = "Login";
 }
+
 <link href="~/css/login.css" rel="stylesheet" />
 
-<div class="container">
-    <div class="col-md-8 login-container">
-        <div class="card login-card">
-            <div class="card-header bg-primary text-white text-center">
-                <h2>Acesso à Conta</h2>
+<div class="form-wrapper d-flex justify-content-center align-items-center vh-100">
+    <div class="custom-card shadow-lg p-4" style="max-width:420px;">
+        <h2 class="text-center mb-3">Acesso à Conta</h2>
+
+        @if (TempData["MensagemErro"] != null)
+        {
+            <div class="alert alert-danger">@TempData["MensagemErro"]</div>
+        }
+
+        <form method="post" asp-action="Login">
+            <div class="mb-3">
+                <label class="form-label">Nome</label>
+                <input name="NomeUsu" class="form-control" placeholder="Digite seu nome" />
             </div>
-            <div class="card-body">
 
-                <form asp-controller="Usuario" asp-action="Login" method="post">
-
-                    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
-
-                    <div class="mb-3">
-                        <div class="mb-3">
-                            <label asp-for="NomeUsu" class="form-label"></label>
-                            <input asp-for="NomeUsu" class="form-control" placeholder="Digite seu nome" />
-                            <span asp-validation-for="NomeUsu" class="text-danger"></span>
-                        </div>
-
-
-                        <div class="mb-3">
-                            <label asp-for="SenhaUsu" class="form-label"></label>
-                            <input asp-for="SenhaUsu" type="password" class="form-control" placeholder="••••••••" />
-                            <span asp-validation-for="SenhaUsu" class="text-danger"></span>
-                        </div>
-
-
-                    <div class="d-grid gap-2 mt-4">
-                        <button type="submit" class="btn btn-primary btn-lg">Entrar</button>
-                    </div>
-
-                </form>
+            <div class="mb-3">
+                <label class="form-label">Senha</label>
+                <input name="SenhaUsu" type="password" class="form-control" placeholder="••••••" />
             </div>
-        </div>
+
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary btn-lg">Entrar</button>
+            </div>
+
+            <div class="mt-3 text-center">
+                <a asp-action="CadastrarUsuario">Criar conta</a>
+            </div>
+        </form>
     </div>
 </div>

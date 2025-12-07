@@ -1,44 +1,30 @@
 ﻿@model ProjetoEcommerce.Models.Usuario
-
 @{
     ViewData["Title"] = "Cadastrar Usuário";
 }
-
 <link href="~/css/cadastrousuario.css" rel="stylesheet" />
-<div class="container">
-    <div class="col-md-8 login-container">
-        <div class="card login-card">
 
-            <div class="card-header text-white text-center">
-                <h2>Cadastro de Usuário</h2>
+<div class="form-wrapper d-flex justify-content-center align-items-center vh-100">
+    <div class="custom-card shadow-lg p-4" style="max-width:480px;">
+        <h2 class="text-center mb-2">Cadastro de Usuário</h2>
+        <p class="text-center text-muted">Crie sua conta para acessar o sistema</p>
+
+        <form method="post" asp-action="CadastrarUsuario">
+            <div class="mb-3">
+                <label class="form-label">Nome</label>
+                <input asp-for="NomeUsu" class="form-control" placeholder="Digite seu nome" />
+                <span asp-validation-for="NomeUsu" class="text-danger"></span>
             </div>
 
-            <div class="card-body">
-                <p class="card-description">Crie sua conta para acessar o sistema</p>
-
-                <form asp-action="CadastrarUsuario" method="post">
-
-                    <div class="mb-3">
-                        <label for="NomeUsu" class="form-label">Nome</label>
-                        <input asp-for="NomeUsu" class="form-control" placeholder="Digite seu nome" />
-                        <span asp-validation-for="NomeUsu" class="text-danger"></span>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="SenhaUsu" class="form-label">Senha</label>
-                        <input asp-for="SenhaUsu" type="password" class="form-control" placeholder="Digite sua senha" />
-                        <span asp-validation-for="SenhaUsu" class="text-danger"></span>
-                    </div>
-
-                    <div class="d-grid gap-2 mt-4">
-                        <button type="submit" class="btn btn-primary btn-lg">Cadastrar</button>
-                    </div>
-
-                    <a asp-controller="Home" asp-action="Index" class="secondary-link mt-3">Voltar à Página Inicial</a>
-
-                </form>
-
+            <div class="mb-3">
+                <label class="form-label">Senha</label>
+                <input asp-for="SenhaUsu" type="password" class="form-control" placeholder="Digite sua senha" />
+                <span asp-validation-for="SenhaUsu" class="text-danger"></span>
             </div>
-        </div>
+
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-gradient">Cadastrar</button>
+            </div>
+        </form>
     </div>
 </div>

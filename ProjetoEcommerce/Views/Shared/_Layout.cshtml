@@ -8,27 +8,22 @@
     <title>@ViewData["Title"] - Pitaya Vegan</title>
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/ProjetoEcommerce.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/carrinho.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/carrinho.css" />
 </head>
 <body>
     @{
-        // sessão
         var nomeUsuario = HttpContextAccessor?.HttpContext?.Session.GetString("UsuarioLogado");
-        var codUsu = HttpContextAccessor?.HttpContext?.Session.GetString("CodUsu");
         bool logado = !string.IsNullOrEmpty(nomeUsuario);
     }
 
-    <!-- NAVBAR -->
     <header>
         <nav class="pv-navbar">
             <div class="pv-left">
                 <a asp-controller="Home" asp-action="Index" class="pv-brand">
-                    <img src="~/img/Logo.png" alt="Pitaya Vegan" class="pv-logo" />
+                    <img src="~/img/Logo.png" class="pv-logo" />
                     <span class="pv-title">Pitaya Vegan</span>
                 </a>
-
                 <div class="pv-links">
                     <a asp-controller="Home" asp-action="Index" class="pv-link">Home</a>
                     <a asp-controller="Loja" asp-action="CatalogoProdutos" class="pv-link">Menu</a>
@@ -36,23 +31,22 @@
             </div>
 
             <div class="pv-right">
-                <!-- ícone sacola/carrinho -->
                 <button class="icon-btn" id="btnOpenCart" title="Abrir sacola">
                     <img src="~/img/sacola.png" alt="Sacola" class="icon-img" />
                 </button>
 
                 @if (!logado)
                 {
-                    <a asp-controller="Usuario" asp-action="Login" class="pv-link small">Login</a>
-                    <a asp-controller="Usuario" asp-action="CadastrarUsuario" class="pv-link small">Cadastro</a>
+                    <a id="btnLogin" asp-controller="Usuario" asp-action="Login" class="pv-link small">Login</a>
+                    <a id="btnCadastro" asp-controller="Usuario" asp-action="CadastrarUsuario" class="pv-link small">Cadastro</a>
                 }
                 else
                 {
                     <div class="user-area">
-                        <img src="~/img/profile.png" alt="Perfil" class="profile-icon" />
+                        <img src="~/img/profile.png" class="profile-icon" />
                         <div class="user-popup">
                             <div class="user-popup-top">
-                                <img src="~/img/profile.png" alt="Perfil" class="popup-profile" />
+                                <img src="~/img/profile.png" class="popup-profile" />
                                 <div class="popup-nome">@nomeUsuario</div>
                             </div>
 
@@ -65,39 +59,34 @@
         </nav>
     </header>
 
-    <!-- CORPO -->
     <main role="main" class="pb-3">
         @RenderBody()
     </main>
 
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/carrinho.js"></script>
+
     <!-- POPUP CARRINHO -->
-    <div id="popup-carrinho" class="popup-carrinho" aria-hidden="true">
+    <div id="popup-carrinho" class="popup-carrinho" aria-hidden="true" style="display:none">
         <div class="popup-card">
             <div class="popup-header">
                 <h4>Sacola</h4>
-                <button class="fechar" id="btnFecharCarrinho" aria-label="Fechar">×</button>
+                <button class="fechar" id="btnFecharCarrinho">×</button>
             </div>
 
             <div id="lista-carrinho" class="popup-body">
-                <!-- itens serão renderizados via JS -->
                 <div class="lista-vazia">Seu carrinho está vazio.</div>
             </div>
 
             <div class="popup-footer">
                 <div id="total-carrinho">Total: R$ 0,00</div>
                 <div class="footer-actions">
-                    <button class="btn btn-secondary" id="btnClearCart">Limpar</button>
-                    <button class="btn btn-success" id="btnFinalizar">Finalizar</button>
+                    <button id="btnClearCart" class="btn btn-secondary">Limpar</button>
+                    <button id="btnFinalizar" class="btn btn-success">Finalizar</button>
                 </div>
             </div>
         </div>
     </div>
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-
-    <script src="~/js/carrinho.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

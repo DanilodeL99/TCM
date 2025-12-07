@@ -31,3 +31,7 @@ CREATE TABLE tbPedido (
 );
 
 
+select*from tbUsuario;
+select*from tbProduto;
+select*from tbPedido;
+

@@ -1,6 +1,4 @@
-﻿using MySqlX.XDevAPI;
-
-namespace ProjetoEcommerce.Models
+﻿namespace ProjetoEcommerce.Models
 {
     public class Produto
     {
@@ -8,8 +6,6 @@ namespace ProjetoEcommerce.Models
         public string NomeProd { get; set; }
         public string DescProd { get; set; }
         public decimal PrecoProd { get; set; }
-        public int CodUsu { get; set; }
+        public int CodUsu { get; set; } // quem cadastrou
     }
 }
-
-

@@ -1,33 +1,24 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
+using System.Text.Json;
 using ProjetoEcommerce.Models;
-using System.Collections.Generic;
 
 namespace ProjetoEcommerce.Helpers
 {
     public static class CarrinhoSessao
     {
-        private const string CHAVE = "CARRINHO";
+        private const string KEY = "CARRINHO";
 
         public static List<CarrinhoItem> Get(ISession session)
         {
-            var dado = session.GetString(CHAVE);
-
-            if (string.IsNullOrEmpty(dado))
-                return new List<CarrinhoItem>();
-
-            return JsonConvert.DeserializeObject<List<CarrinhoItem>>(dado);
+            var s = session.GetString(KEY);
+            if (string.IsNullOrEmpty(s)) return new List<CarrinhoItem>();
+            return JsonSerializer.Deserialize<List<CarrinhoItem>>(s) ?? new List<CarrinhoItem>();
         }
 
-        public static void Save(ISession session, List<CarrinhoItem> carrinho)
+        public static void Save(ISession session, List<CarrinhoItem> itens)
         {
-            var json = JsonConvert.SerializeObject(carrinho);
-            session.SetString(CHAVE, json);
-        }
-
-        public static void Clear(ISession session)
-        {
-            session.Remove(CHAVE);
+            var s = JsonSerializer.Serialize(itens);
+            session.SetString(KEY, s);
         }
     }
 }

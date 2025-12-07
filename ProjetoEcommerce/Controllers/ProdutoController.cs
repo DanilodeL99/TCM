@@ -13,96 +13,64 @@ namespace ProjetoEcommerce.Controllers
             _produtoRepositorio = produtoRepositorio;
         }
 
-        // LISTAGEM
         public IActionResult ListarProdutos()
         {
             return View(_produtoRepositorio.TodosProdutos());
         }
 
-
-        // FORM CADASTRAR
         public IActionResult CadastrarProduto()
         {
+            // só exibe o formulário
             return View();
         }
 
-
-        // SALVAR PRODUTO - POST
         [HttpPost]
-        public IActionResult CadastrarProduto(Produto produto)
+        public IActionResult CadastrarProduto([Bind("NomeProd,DescProd,PrecoProd")] Produto produto)
         {
-            // pega do login
-            var codUsuStr = HttpContext.Session.GetString("CodUsu");
-
             // valida sessão
+            var codUsuStr = HttpContext.Session.GetString("CodUsu");
             if (string.IsNullOrEmpty(codUsuStr))
             {
-                TempData["MensagemErro"] = "Sessão expirada. Faça login novamente.";
+                TempData["MensagemErro"] = "Sessão expirada. Faça login para cadastrar produtos.";
                 return RedirectToAction("Login", "Usuario");
             }
 
-            // conversão segura
-            if (!int.TryParse(codUsuStr, out int codUsu))
-            {
-                TempData["MensagemErro"] = "Erro ao recuperar o usuário da sessão.";
-                return RedirectToAction("Login", "Usuario");
-            }
+            produto.CodUsu = int.Parse(codUsuStr);
 
-            produto.CodUsu = codUsu;
-
-            // salva no banco
-            _produtoRepositorio.CadastrarProduto(produto);
-
+            // cadastra e obtém id
+            var novoId = _produtoRepositorio.CadastrarProduto(produto);
             TempData["MensagemSucesso"] = "Produto cadastrado com sucesso!";
-            return RedirectToAction("Menu", "Usuario");
+            return RedirectToAction("ListarProdutos", "Produto");
         }
 
-
-        // EDITAR PRODUTO (GET)
         public IActionResult EditarProduto(int id)
         {
             var produto = _produtoRepositorio.ObterProduto(id);
-
-            if (produto == null)
-                return NotFound();
-
+            if (produto == null) return NotFound();
             return View(produto);
         }
 
-
-        // EDITAR PRODUTO (POST)
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult EditarProduto([Bind("Id, Nome, Descricao, Preco, Qtd")] Produto produto)
+        public IActionResult EditarProduto([Bind("CodProd,NomeProd,DescProd,PrecoProd")] Produto produto)
         {
-            if (!ModelState.IsValid)
-                return View(produto);
+            var codUsuStr = HttpContext.Session.GetString("CodUsu");
+            if (!string.IsNullOrEmpty(codUsuStr))
+                produto.CodUsu = int.Parse(codUsuStr);
 
-            try
+            if (_produtoRepositorio.Atualizar(produto))
             {
-                if (_produtoRepositorio.Atualizar(produto))
-                {
-                    TempData["MensagemSucesso"] = "Produto atualizado com sucesso!";
-                    return RedirectToAction("ListarProdutos");
-                }
-
-                TempData["MensagemErro"] = "Erro ao atualizar o produto!";
-            }
-            catch
-            {
-                TempData["MensagemErro"] = "Ocorreu um erro ao atualizar o produto.";
+                TempData["MensagemSucesso"] = "Produto atualizado!";
+                return RedirectToAction("ListarProdutos");
             }
 
+            TempData["MensagemErro"] = "Erro ao atualizar.";
             return View(produto);
         }
 
-
-        // EXCLUI PRODUTO
         public IActionResult ExcluirProduto(int id)
         {
             _produtoRepositorio.Excluir(id);
-            TempData["MensagemSucesso"] = "Produto excluído com sucesso!";
-
             return RedirectToAction("ListarProdutos");
         }
     }

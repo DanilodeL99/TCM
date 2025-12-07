@@ -1,46 +1,38 @@
-﻿@{
+﻿@model ProjetoEcommerce.Models.Produto
+@{
     ViewData["Title"] = "Cadastro de Produto";
 }
 
 <link href="~/css/cadastroproduto.css" rel="stylesheet" />
 
-<div class="form-wrapper d-flex justify-content-center align-items-center">
-
-    <div class="custom-card shadow-lg">
-
+<div class="form-wrapper d-flex justify-content-center align-items-center vh-100">
+    <div class="custom-card shadow-lg p-4" style="max-width:640px;">
         <div class="header">
             <h2>Cadastro de Produto</h2>
             <p>Adicione novos itens ao cardápio</p>
         </div>
 
-        <form asp-controller="Produto" asp-action="CadastrarProduto" method="post">
-
-            <div class="input-group">
-                <label>Nome do Produto</label>
-                <input type="text" name="NomeProd" placeholder="Ex: Salada Vegana Especial" required />
+        <form asp-action="CadastrarProduto" method="post">
+            <div class="mb-3">
+                <label class="form-label">Nome do Produto</label>
+                <input asp-for="NomeProd" class="form-control" placeholder="Ex: Salada Vegana Especial" required />
             </div>
 
-            <div class="input-group">
-                <label>Descrição</label>
-                <textarea name="DescProd" rows="3" placeholder="Descrição detalhada do produto" required></textarea>
+            <div class="mb-3">
+                <label class="form-label">Descrição</label>
+                <textarea asp-for="DescProd" class="form-control" rows="3" placeholder="Descrição detalhada" required></textarea>
             </div>
 
-            <div class="half-group d-flex gap-3">
-                <div class="input-group flex-fill">
-                    <label>Preço (R$)</label>
-                    <input type="number" name="PrecoProd" step="0.01" placeholder="Ex: 24.90" required />
-                </div>
-
-                <div class="input-group flex-fill">
-                    <label>Quantidade</label>
-                    <input type="number" name="Qtd" placeholder="Ex: 10" required />
+            <div class="row g-3">
+                <div class="col">
+                    <label class="form-label">Preço (R$)</label>
+                    <input asp-for="PrecoProd" class="form-control" step="0.01" placeholder="24.90" required />
                 </div>
             </div>
 
-            <button type="submit" class="btn-submit">Cadastrar Produto</button>
-
-            <a asp-controller="Usuario" asp-action="Menu" class="btn-back">Voltar</a>
+            <div class="d-grid gap-2 mt-3">
+                <button type="submit" class="btn btn-success">Cadastrar Produto</button>
+            </div>
         </form>
-
     </div>
 </div>
