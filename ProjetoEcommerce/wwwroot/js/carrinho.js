@@ -1,181 +1,111 @@
-﻿(function () {
-    const popup = document.getElementById('popup-carrinho');
-    const btnOpen = document.getElementById('btnOpenCart');
-    const btnClose = document.getElementById('btnFecharCarrinho');
-    const listaEl = document.getElementById('lista-carrinho');
-    const totalEl = document.getElementById('total-carrinho');
-    const btnClear = document.getElementById('btnClearCart');
-    const btnFinalizar = document.getElementById('btnFinalizar');
+﻿document.addEventListener("DOMContentLoaded", function () {
 
-    function abrirCarrinho() {
-        loadCart();
-        popup.style.display = 'block';
-    }
-    function fecharCarrinho() {
-        popup.style.display = 'none';
-    }
+    const popup = document.getElementById("popup-carrinho");
+    const btnOpenCart = document.getElementById("btnOpenCart");
+    const btnClose = document.getElementById("btnFecharCarrinho");
 
-    btnOpen && btnOpen.addEventListener('click', abrirCarrinho);
-    btnClose && btnClose.addEventListener('click', fecharCarrinho);
+    const listaCarrinho = document.getElementById("lista-carrinho");
+    const totalCarrinho = document.getElementById("total-carrinho");
+    const btnClear = document.getElementById("btnClearCart");
+    const btnFinalizar = document.getElementById("btnFinalizar");
 
-    async function loadCart() {
-        listaEl.innerHTML = '<div class="lista-vazia">Carregando...</div>';
-        try {
-            const res = await fetch('/Carrinho/Listar');
-            if (!res.ok) { listaEl.innerHTML = '<div class="lista-vazia">Erro ao carregar.</div>'; return; }
-            const data = await res.json();
-            renderCart(data || []);
-        } catch (err) {
-            listaEl.innerHTML = '<div class="lista-vazia">Erro ao carregar.</div>';
-            console.error(err);
-        }
+    let carrinho = JSON.parse(localStorage.getItem("carrinhoPV")) || [];
+
+    function salvarCarrinho() {
+        localStorage.setItem("carrinhoPV", JSON.stringify(carrinho));
     }
 
-    function renderCart(items) {
-        if (!items || items.length === 0) {
-            listaEl.innerHTML = '<div class="lista-vazia">Seu carrinho está vazio.</div>';
-            totalEl.textContent = 'Total: R$ 0,00';
+    function atualizarCarrinho() {
+        listaCarrinho.innerHTML = "";
+
+        if (carrinho.length === 0) {
+            listaCarrinho.innerHTML = `<div class="lista-vazia">Sua sacola está vazia.</div>`;
+            totalCarrinho.textContent = "Total: R$ 0,00";
             return;
         }
 
-        listaEl.innerHTML = '';
         let total = 0;
-        items.forEach(it => {
-            total += (it.preco ?? it.Preco ?? it.PrecoProd ?? 0) * (it.quantidade ?? it.Quantidade ?? 1);
-            const preco = (it.preco ?? it.Preco ?? it.PrecoProd ?? 0).toFixed(2);
 
-            const div = document.createElement('div');
-            div.className = 'carrinho-item';
-            div.innerHTML = `
-                <img src="${it.imagem ?? it.Imagem ?? '/img/placeholder.png'}" />
-                <div class="carrinho-info">
-                    <div class="carrinho-nome">${it.nome ?? it.Nome ?? ''}</div>
-                    <div class="carrinho-preco">R$ ${preco}</div>
-                    <div class="qty-control">
-                        <button class="qty-btn btn-decrease" data-id="${it.produtoId ?? it.ProdutoId}">-</button>
-                        <div class="qty-value">${it.quantidade ?? it.Quantidade ?? 1}</div>
-                        <button class="qty-btn btn-increase" data-id="${it.produtoId ?? it.ProdutoId}">+</button>
-                        <button class="remove-btn" data-id="${it.produtoId ?? it.ProdutoId}">Excluir</button>
-                    </div>
-                </div>
+        carrinho.forEach((item, index) => {
+            total += item.preco * item.qtd;
+
+            const linha = document.createElement("div");
+            linha.classList.add("item-carrinho");
+
+            linha.innerHTML = `
+                <span>${item.nome}</span>
+                <span>R$ ${item.preco.toFixed(2).replace(".", ",")}</span>
+                <span>Qtd: ${item.qtd}</span>
+                <button class="btn btn-sm btn-danger" data-index="${index}">X</button>
             `;
-            listaEl.appendChild(div);
+
+            listaCarrinho.appendChild(linha);
         });
 
-        totalEl.textContent = 'Total: R$ ' + total.toFixed(2);
+        totalCarrinho.textContent = "Total: R$ " + total.toFixed(2).replace(".", ",");
 
-        document.querySelectorAll('.btn-increase').forEach(b => b.addEventListener('click', e => changeQuantity(parseInt(e.currentTarget.dataset.id), +1)));
-        document.querySelectorAll('.btn-decrease').forEach(b => b.addEventListener('click', e => changeQuantity(parseInt(e.currentTarget.dataset.id), -1)));
-        document.querySelectorAll('.remove-btn').forEach(b => b.addEventListener('click', e => removeItem(parseInt(e.currentTarget.dataset.id))));
-    }
-
-    async function changeQuantity(produtoId, delta) {
-        try {
-            const res = await fetch('/Carrinho/Listar');
-            const items = await res.json();
-            const item = items.find(x => (x.produtoId ?? x.ProdutoId) == produtoId);
-            if (!item) return;
-            const current = parseInt(item.quantidade ?? item.Quantidade ?? 1);
-            const nova = current + delta;
-            if (nova <= 0) {
-                await fetch('/Carrinho/Remover', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ ProdutoId: produtoId })
-                });
-            } else {
-                await fetch('/Carrinho/AtualizarQuantidade', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ ProdutoId: produtoId, Quantidade: nova })
-                });
-            }
-            await loadCart();
-        } catch (err) { console.error(err); }
-    }
-
-    async function removeItem(produtoId) {
-        try {
-            await fetch('/Carrinho/Remover', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ ProdutoId: produtoId })
-            });
-            await loadCart();
-        } catch (err) { console.error(err); }
-    }
-
-    btnClear && btnClear.addEventListener('click', async function () {
-        try {
-            const res = await fetch('/Carrinho/Listar');
-            const items = await res.json();
-            for (const it of items) {
-                const id = it.produtoId ?? it.ProdutoId;
-                await fetch('/Carrinho/Remover', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ ProdutoId: id })
-                });
-            }
-            await loadCart();
-        } catch (err) { console.error(err); }
-    });
-
-    btnFinalizar && btnFinalizar.addEventListener('click', function () {
-        alert('Fluxo de finalização a implementar (checkout).');
-    });
-
-    // adicionar produto - exige autenticação (servidor verifica sessão)
-    function bindAddButtons() {
-        document.querySelectorAll('.prato-item .botao-pedido').forEach(btn => {
-            btn.addEventListener('click', async function (e) {
-                const el = e.currentTarget.closest('.prato-item');
-                if (!el) return;
-
-                const produtoId = parseInt(el.dataset.id || el.dataset.cod || el.dataset.produtoid || 0);
-                const nome = el.dataset.nome || el.querySelector('.prato-nome')?.innerText || '';
-                const precoRaw = el.dataset.preco || el.dataset.price || el.querySelector('.prato-preco')?.innerText || '0';
-                const preco = parseFloat(String(precoRaw).replace(/[^\d,.-]/g, '').replace(',', '.')) || 0;
-                const img = el.dataset.img || el.querySelector('img')?.getAttribute('src') || '/img/placeholder.png';
-
-                const payload = {
-                    ProdutoId: produtoId,
-                    Nome: nome,
-                    Preco: preco,
-                    Quantidade: 1,
-                    Imagem: img
-                };
-
-                try {
-                    const res = await fetch('/Carrinho/Adicionar', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-
-                    if (res.status === 401) {
-                        alert('Você precisa estar logado para adicionar ao carrinho.');
-                        window.location.href = '/Usuario/Login';
-                        return;
-                    }
-
-                    await abrirEAposAdicionar();
-                } catch (err) {
-                    console.error(err);
-                }
+        document.querySelectorAll(".btn-danger").forEach(btn => {
+            btn.addEventListener("click", function () {
+                const index = this.getAttribute("data-index");
+                carrinho.splice(index, 1);
+                salvarCarrinho();
+                atualizarCarrinho();
             });
         });
     }
 
-    async function abrirEAposAdicionar() {
-        await loadCart();
-        abrirCarrinho();
+    if (btnOpenCart) {
+        btnOpenCart.addEventListener("click", () => {
+            popup.style.display = "block";
+            atualizarCarrinho();
+        });
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
-        bindAddButtons();
-    });
+    if (btnClose) {
+        btnClose.addEventListener("click", () => {
+            popup.style.display = "none";
+        });
+    }
 
-    window.abrirCarrinho = abrirCarrinho;
-    window.fecharCarrinho = fecharCarrinho;
-})();
+    if (btnClear) {
+        btnClear.addEventListener("click", () => {
+            carrinho = [];
+            salvarCarrinho();
+            atualizarCarrinho();
+        });
+    }
+
+    if (btnFinalizar) {
+        btnFinalizar.addEventListener("click", () => {
+
+            if (carrinho.length === 0) {
+                alert("Sua sacola está vazia!");
+                return;
+            }
+
+            window.location.href = "/Home/Privacy";
+        });
+    }
+});
+
+// FUNÇÃO GLOBAL USADA PELOS BOTÕES DO CARDÁPIO
+window.addToCart = function (nome, preco) {
+
+    if (window.usuarioEstaLogado !== "true") {
+        alert("Você precisa fazer login para adicionar um item à sacola!");
+        return;
+    }
+
+    let carrinho = JSON.parse(localStorage.getItem("carrinhoPV")) || [];
+
+    const itemExistente = carrinho.find(x => x.nome === nome);
+
+    if (itemExistente) {
+        itemExistente.qtd++;
+    } else {
+        carrinho.push({ nome, preco, qtd: 1 });
+    }
+
+    localStorage.setItem("carrinhoPV", JSON.stringify(carrinho));
+    alert("Item adicionado à sacola!");
+};

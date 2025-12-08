@@ -14,13 +14,8 @@ namespace ProjetoEcommerce.Controllers
             _usuarioRepositorio = usuarioRepositorio;
         }
 
-        // GET: Login
-        public IActionResult Login()
-        {
-            return View();
-        }
+        public IActionResult Login() => View();
 
-        // POST: Login
         [HttpPost]
         public IActionResult Login(string NomeUsu, string SenhaUsu)
         {
@@ -37,47 +32,35 @@ namespace ProjetoEcommerce.Controllers
                 return View();
             }
 
-            // grava sessão
             HttpContext.Session.SetString("UsuarioLogado", usuarioBanco.NomeUsu);
             HttpContext.Session.SetString("CodUsu", usuarioBanco.CodUsu.ToString());
 
-            // redireciona para menu do usuario (onde está o CRUD link "Minhas Configurações")
-            return RedirectToAction("Menu", "Usuario");
+            // redirecionar ao Home conforme pedido
+            return RedirectToAction("Index", "Home");
         }
 
-        // GET: Logout
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
             return RedirectToAction("Index", "Home");
         }
 
-        // Menu do usuário (após login)
-        public IActionResult Menu()
-        {
-            return View();
-        }
+        public IActionResult Menu() => View();
 
-        // GET: Cadastrar
-        public IActionResult CadastrarUsuario()
-        {
-            return View();
-        }
+        public IActionResult CadastrarUsuario() => View();
 
-        // POST: Cadastrar
         [HttpPost]
         public IActionResult CadastrarUsuario(Usuario usuario)
         {
-            if (!ModelState.IsValid)
-                return View(usuario);
+            if (!ModelState.IsValid) return View(usuario);
 
             var novoId = _usuarioRepositorio.Cadastrar(usuario);
 
-            // opcional: logar automático
             HttpContext.Session.SetString("UsuarioLogado", usuario.NomeUsu);
             HttpContext.Session.SetString("CodUsu", novoId.ToString());
 
-            return RedirectToAction("Menu", "Usuario");
+            // após cadastro, voltar ao Home (ou ao menu se preferir)
+            return RedirectToAction("Index", "Home");
         }
     }
 }

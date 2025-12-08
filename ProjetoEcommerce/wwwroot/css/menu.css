@@ -98,7 +98,7 @@
 /* Botão 3: Editar / Excluir Produto (Amarelo) */
 .btn-warning {
     background-color: #ff3c7f;
-    color: var(--text-color); /* Mudar a cor do texto para escuro, já que o fundo é claro */
+    color: white; /* Mudar a cor do texto para escuro, já que o fundo é claro */
 }
 
     .btn-warning:hover {

@@ -10,20 +10,161 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/carrinho.css" />
+
+    <style>
+        /* ======================= NAVBAR ======================= */
+        .pv-navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 24px;
+            border-bottom: 3px solid #F5357A;
+            background: #fff;
+            z-index: 1000;
+        }
+
+        .pv-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .pv-logo {
+            height: 56px;
+        }
+
+        .pv-title {
+            font-weight: 600;
+            color: #222;
+            margin-left: 6px;
+        }
+
+        .pv-links .pv-link {
+            margin-right: 14px;
+            color: #555;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+            .pv-links .pv-link:hover {
+                color: #F5357A;
+            }
+
+        .pv-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .icon-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+        }
+
+        .icon-img {
+            width: 34px;
+            height: 34px;
+        }
+
+        /* ======================= USER POPUP ======================= */
+        .user-area {
+            position: relative;
+        }
+
+        .profile-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid #eee;
+            transition: 0.2s;
+        }
+
+            .profile-icon:hover {
+                border-color: #F5357A;
+            }
+
+        .user-popup {
+            position: absolute;
+            top: 56px;
+            right: 0;
+            width: 230px;
+            background: #fff;
+            border-radius: 18px;
+            border: 3px solid #f0c6d1;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+            padding: 12px;
+            display: none;
+            z-index: 2000;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity .18s ease, transform .18s ease;
+        }
+
+            /* popup visível */
+            .user-popup.show {
+                display: block;
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        .user-popup-top {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .popup-profile {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+        }
+
+        .popup-nome {
+            font-weight: 700;
+        }
+
+        .popup-link {
+            display: block;
+            padding: 8px 4px;
+            color: #333;
+            text-decoration: none;
+            margin-top: 6px;
+        }
+
+            .popup-link:hover {
+                background: #f7e7eb;
+                border-radius: 6px;
+            }
+
+            .popup-link.logout {
+                color: #c0392b;
+                font-weight: 700;
+            }
+    </style>
 </head>
+
 <body>
+    @*
+        VERIFICAR LOGIN
+    *@
     @{
         var nomeUsuario = HttpContextAccessor?.HttpContext?.Session.GetString("UsuarioLogado");
         bool logado = !string.IsNullOrEmpty(nomeUsuario);
     }
 
+    <!-- ===================== NAVBAR ===================== -->
     <header>
         <nav class="pv-navbar">
             <div class="pv-left">
-                <a asp-controller="Home" asp-action="Index" class="pv-brand">
-                    <img src="~/img/Logo.png" class="pv-logo" />
+                <a asp-controller="Home" asp-action="Index" class="pv-brand" style="display:flex;align-items:center;text-decoration:none;">
+                    <img src="~/img/Logo.png" class="pv-logo" alt="Logo" />
                     <span class="pv-title">Pitaya Vegan</span>
                 </a>
+
                 <div class="pv-links">
                     <a asp-controller="Home" asp-action="Index" class="pv-link">Home</a>
                     <a asp-controller="Loja" asp-action="CatalogoProdutos" class="pv-link">Menu</a>
@@ -31,23 +172,29 @@
             </div>
 
             <div class="pv-right">
-                <button class="icon-btn" id="btnOpenCart" title="Abrir sacola">
-                    <img src="~/img/sacola.png" alt="Sacola" class="icon-img" />
+
+                <!-- Botão Sacola -->
+                <button id="btnOpenCart" class="icon-btn" title="Abrir sacola">
+                    <img src="~/img/sacola.png" class="icon-img" alt="Sacola" />
                 </button>
 
                 @if (!logado)
                 {
-                    <a id="btnLogin" asp-controller="Usuario" asp-action="Login" class="pv-link small">Login</a>
-                    <a id="btnCadastro" asp-controller="Usuario" asp-action="CadastrarUsuario" class="pv-link small">Cadastro</a>
+                    <a asp-controller="Usuario" asp-action="Login" class="pv-link small">Login</a>
+                    <a asp-controller="Usuario" asp-action="CadastrarUsuario" class="pv-link small">Cadastro</a>
                 }
                 else
                 {
                     <div class="user-area">
-                        <img src="~/img/profile.png" class="profile-icon" />
-                        <div class="user-popup">
+                        <img id="btnProfile" src="~/img/profile.png" class="profile-icon" alt="Perfil" />
+
+                        <div id="userPopup" class="user-popup" aria-hidden="true">
                             <div class="user-popup-top">
-                                <img src="~/img/profile.png" class="popup-profile" />
-                                <div class="popup-nome">@nomeUsuario</div>
+                                <img src="~/img/profile.png" class="popup-profile" alt="perfil" />
+                                <div>
+                                    <div class="popup-nome">@nomeUsuario</div>
+                                    <div class="text-muted" style="font-size:0.85rem">@DateTime.Now.ToString("yyyy")</div>
+                                </div>
                             </div>
 
                             <a asp-controller="Usuario" asp-action="Menu" class="popup-link">Minhas Configurações</a>
@@ -59,16 +206,13 @@
         </nav>
     </header>
 
+    <!-- ===================== CONTEÚDO ===================== -->
     <main role="main" class="pb-3">
         @RenderBody()
     </main>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/carrinho.js"></script>
-
-    <!-- POPUP CARRINHO -->
-    <div id="popup-carrinho" class="popup-carrinho" aria-hidden="true" style="display:none">
+    <!-- ===================== SACOLA ===================== -->
+    <div id="popup-carrinho" class="popup-carrinho" style="display:none;">
         <div class="popup-card">
             <div class="popup-header">
                 <h4>Sacola</h4>
@@ -81,12 +225,58 @@
 
             <div class="popup-footer">
                 <div id="total-carrinho">Total: R$ 0,00</div>
-                <div class="footer-actions">
-                    <button id="btnClearCart" class="btn btn-secondary">Limpar</button>
+
+                <div style="margin-top:10px;">
+                    <button id="btnClearCart" class="btn btn-outline-secondary">Limpar</button>
                     <button id="btnFinalizar" class="btn btn-success">Finalizar</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- ===================== SCRIPTS ===================== -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Passa o login como BOOLEAN REAL -->
+    <script>
+        window.usuarioEstaLogado = @(logado.ToString().ToLower());
+    </script>
+
+    <!-- Carrinho -->
+    <script src="~/js/carrinho.js"></script>
+
+
+    <!-- POPUP DO PERFIL -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const btn = document.getElementById("btnProfile");
+            const popup = document.getElementById("userPopup");
+
+            if (btn && popup) {
+
+                btn.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                    popup.classList.toggle("show");
+                });
+
+                popup.addEventListener("mouseenter", () => {
+                    popup.classList.add("show");
+                });
+
+                popup.addEventListener("mouseleave", () => {
+                    popup.classList.remove("show");
+                });
+
+                document.addEventListener("click", function (e) {
+                    if (!popup.contains(e.target) && !btn.contains(e.target)) {
+                        popup.classList.remove("show");
+                    }
+                });
+            }
+        });
+    </script>
+
 </body>
 </html>
