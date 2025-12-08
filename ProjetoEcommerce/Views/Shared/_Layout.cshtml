@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="~/css/carrinho.css" />
 
     <style>
-        /* ======================= NAVBAR ======================= */
+        /* NAVBAR / POPUP styles (compacto, ajuste no CSS principal se quiser) */
         .pv-navbar {
             display: flex;
             justify-content: space-between;
@@ -68,7 +68,6 @@
             height: 34px;
         }
 
-        /* ======================= USER POPUP ======================= */
         .user-area {
             position: relative;
         }
@@ -79,7 +78,7 @@
             border-radius: 50%;
             cursor: pointer;
             border: 2px solid #eee;
-            transition: 0.2s;
+            transition: .15s;
         }
 
             .profile-icon:hover {
@@ -90,7 +89,7 @@
             position: absolute;
             top: 56px;
             right: 0;
-            width: 230px;
+            width: 240px;
             background: #fff;
             border-radius: 18px;
             border: 3px solid #f0c6d1;
@@ -103,60 +102,95 @@
             transition: opacity .18s ease, transform .18s ease;
         }
 
-            /* popup visível */
             .user-popup.show {
                 display: block;
                 opacity: 1;
                 transform: translateY(0);
             }
 
-        .user-popup-top {
+        /* popup-carrinho minimal */
+        .popup-carrinho {
+            position: fixed;
+            right: 24px;
+            top: 80px;
+            width: 320px;
+            z-index: 2500;
+        }
+
+        .popup-card {
+            background: #fff;
+            border-radius: 18px;
+            border: 3px solid #f0c6d1;
+            padding: 12px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+        }
+
+        .popup-header {
             display: flex;
-            gap: 10px;
+            justify-content: space-between;
             align-items: center;
             margin-bottom: 8px;
         }
 
-        .popup-profile {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
+        .popup-body {
+            max-height: 320px;
+            overflow: auto;
+            margin-bottom: 8px;
         }
 
-        .popup-nome {
+        .item-carrinho {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            padding: 8px;
+            border-radius: 8px;
+            background: #fafafa;
+            margin-bottom: 8px;
+        }
+
+        .img-carrinho {
+            width: 64px;
+            height: 64px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .info-carrinho {
+            flex: 1;
+        }
+
+        .nome-item {
             font-weight: 700;
+            margin-bottom: 6px;
         }
 
-        .popup-link {
-            display: block;
-            padding: 8px 4px;
-            color: #333;
-            text-decoration: none;
-            margin-top: 6px;
+        .preco-item {
+            color: #F5357A;
+            margin-bottom: 6px;
         }
 
-            .popup-link:hover {
-                background: #f7e7eb;
-                border-radius: 6px;
-            }
+        .qtd-controls {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
 
-            .popup-link.logout {
-                color: #c0392b;
-                font-weight: 700;
-            }
+        .btn-remover {
+            background: #ff5364;
+            color: #fff;
+            border: none;
+            padding: 6px 8px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
     </style>
 </head>
-
 <body>
-    @*
-        VERIFICAR LOGIN
-    *@
     @{
         var nomeUsuario = HttpContextAccessor?.HttpContext?.Session.GetString("UsuarioLogado");
         bool logado = !string.IsNullOrEmpty(nomeUsuario);
     }
 
-    <!-- ===================== NAVBAR ===================== -->
     <header>
         <nav class="pv-navbar">
             <div class="pv-left">
@@ -172,9 +206,7 @@
             </div>
 
             <div class="pv-right">
-
-                <!-- Botão Sacola -->
-                <button id="btnOpenCart" class="icon-btn" title="Abrir sacola">
+                <button id="btnOpenCart" class="icon-btn" title="Abrir sacola" aria-label="Abrir sacola">
                     <img src="~/img/sacola.png" class="icon-img" alt="Sacola" />
                 </button>
 
@@ -187,13 +219,12 @@
                 {
                     <div class="user-area">
                         <img id="btnProfile" src="~/img/profile.png" class="profile-icon" alt="Perfil" />
-
-                        <div id="userPopup" class="user-popup" aria-hidden="true">
-                            <div class="user-popup-top">
-                                <img src="~/img/profile.png" class="popup-profile" alt="perfil" />
+                        <div id="userPopup" class="user-popup" role="dialog" aria-hidden="true">
+                            <div style="display:flex; gap:10px; align-items:center; margin-bottom:8px;">
+                                <img src="~/img/profile.png" style="width:48px;height:48px;border-radius:50%;" />
                                 <div>
-                                    <div class="popup-nome">@nomeUsuario</div>
-                                    <div class="text-muted" style="font-size:0.85rem">@DateTime.Now.ToString("yyyy")</div>
+                                    <div style="font-weight:700;">@nomeUsuario</div>
+                                    <div class="text-muted" style="font-size:0.85rem;">@DateTime.Now.ToString("yyyy")</div>
                                 </div>
                             </div>
 
@@ -206,17 +237,16 @@
         </nav>
     </header>
 
-    <!-- ===================== CONTEÚDO ===================== -->
     <main role="main" class="pb-3">
         @RenderBody()
     </main>
 
-    <!-- ===================== SACOLA ===================== -->
+    <!-- POPUP CARRINHO -->
     <div id="popup-carrinho" class="popup-carrinho" style="display:none;">
-        <div class="popup-card">
+        <div class="popup-card" role="dialog" aria-label="Carrinho">
             <div class="popup-header">
-                <h4>Sacola</h4>
-                <button class="fechar" id="btnFecharCarrinho">×</button>
+                <h4 style="margin:0;">Sacola</h4>
+                <button class="fechar" id="btnFecharCarrinho" aria-label="Fechar sacola">×</button>
             </div>
 
             <div id="lista-carrinho" class="popup-body">
@@ -224,9 +254,9 @@
             </div>
 
             <div class="popup-footer">
-                <div id="total-carrinho">Total: R$ 0,00</div>
+                <div id="total-carrinho" style="font-weight:700; margin-bottom:8px;">Total: R$ 0,00</div>
 
-                <div style="margin-top:10px;">
+                <div style="display:flex;gap:8px; justify-content:flex-end;">
                     <button id="btnClearCart" class="btn btn-outline-secondary">Limpar</button>
                     <button id="btnFinalizar" class="btn btn-success">Finalizar</button>
                 </div>
@@ -234,49 +264,45 @@
         </div>
     </div>
 
-    <!-- ===================== SCRIPTS ===================== -->
+    <!-- SCRIPTS -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Passa o login como BOOLEAN REAL -->
     <script>
-        window.usuarioEstaLogado = @(logado.ToString().ToLower());
+        // expõe se o usuário está logado como booleano JS
+        window.usuarioEstaLogado = @(logado ? "true" : "false");
     </script>
 
-    <!-- Carrinho -->
     <script src="~/js/carrinho.js"></script>
 
-
-    <!-- POPUP DO PERFIL -->
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-
-            const btn = document.getElementById("btnProfile");
-            const popup = document.getElementById("userPopup");
+        // profile popup toggle (melhor com click + persistência curta)
+        document.addEventListener('DOMContentLoaded', function () {
+            const btn = document.getElementById('btnProfile');
+            const popup = document.getElementById('userPopup');
 
             if (btn && popup) {
-
-                btn.addEventListener("click", function (e) {
+                btn.addEventListener('click', function (e) {
                     e.stopPropagation();
-                    popup.classList.toggle("show");
+                    popup.classList.toggle('show');
                 });
 
-                popup.addEventListener("mouseenter", () => {
-                    popup.classList.add("show");
-                });
-
-                popup.addEventListener("mouseleave", () => {
-                    popup.classList.remove("show");
-                });
-
-                document.addEventListener("click", function (e) {
-                    if (!popup.contains(e.target) && !btn.contains(e.target)) {
-                        popup.classList.remove("show");
+                document.addEventListener('click', function (e) {
+                    if (!btn.contains(e.target) && !popup.contains(e.target)) {
+                        popup.classList.remove('show');
                     }
                 });
             }
+
+            // abrir/fechar sacola via botões
+            const btnOpen = document.getElementById('btnOpenCart');
+            const btnClose = document.getElementById('btnFecharCarrinho');
+
+            if (btnOpen) btnOpen.addEventListener('click', function () { if (window.abrirCarrinho) window.abrirCarrinho(); });
+            if (btnClose) btnClose.addEventListener('click', function () { if (window.fecharCarrinho) window.fecharCarrinho(); });
         });
     </script>
 
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
